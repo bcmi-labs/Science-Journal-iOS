@@ -227,7 +227,7 @@ class ExperimentsListDataSource {
     guard !isCollectionViewHeaderSection(atIndex: indexPath.section) else { return "" }
 
     // The first section is the collection view header section, subtract one from the section index.
-    return overviewSections[indexPath.section - 1].title
+    return overviewSections[indexPath.section - 1].title.capitalized
   }
 
   /// Whether or not this is the collection view header section.

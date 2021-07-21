@@ -20,14 +20,36 @@
 import UIKit
 
 class SettingsHeaderCell: UICollectionViewCell {
-
-  @IBOutlet var textLabel: UILabel!
   
-  override func awakeFromNib() {
-    super.awakeFromNib()
-    
-    textLabel.font = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.Small.rawValue)
-    textLabel.textColor = ArduinoColorPalette.tealPalette.tint800
+  static let textLabelMargin: CGFloat = 28.0
+  
+  let textLabel = UILabel()
+  
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    configureCell()
   }
 
+  required init(coder: NSCoder) {
+    super.init(coder: coder)!
+    configureCell()
+  }
+  
+  // MARK: - View
+
+  private func configureCell() {
+    textLabel.font = ArduinoTypography.regularFont(forSize: ArduinoTypography.FontSize.Small.rawValue)
+    textLabel.textColor = ArduinoColorPalette.tealPalette.tint800
+    textLabel.translatesAutoresizingMaskIntoConstraints = false
+    addSubview(textLabel)
+    configureConstraints()
+  }
+
+  private func configureConstraints() {
+    textLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor,
+                                       constant: SettingsHeaderCell.textLabelMargin).isActive = true
+    textLabel.trailingAnchor.constraint(greaterThanOrEqualTo: self.trailingAnchor,
+                                        constant: SettingsHeaderCell.textLabelMargin * -1).isActive = true
+    textLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+  }
 }

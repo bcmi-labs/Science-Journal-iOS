@@ -19,7 +19,7 @@
 
 import UIKit
 
-class DriveSyncPathView: UIStackView {
+class DriveSyncPathView: UIView {
 
   var folder: DriveFetcher.Folder? {
     didSet {
@@ -57,8 +57,24 @@ class DriveSyncPathView: UIStackView {
     button.addTarget(self, action: #selector(create(_:)), for: .touchUpInside)
     return button
   }()
+
+  lazy private var stackView: UIStackView = {
+    let view = UIStackView()
+    view.axis = .horizontal
+    view.spacing = 14
+    
+    view.backgroundColor = ArduinoColorPalette.grayPalette.tint200
+    view.clipsToBounds = true
+    view.layer.cornerRadius = 5
+    
+    view.addArrangedSubview(backButton)
+    view.addArrangedSubview(pathLabel)
+    view.addArrangedSubview(createButton)
+    return view 
+  }()
   
   init(onBack: @escaping () -> Void, onCreate: @escaping () -> Void) {
+ 
     super.init(frame: .zero)
     self.onBack = onBack
     self.onCreate = onCreate
@@ -75,17 +91,18 @@ class DriveSyncPathView: UIStackView {
     return size
   }
   
-  private func setupView() {
-    axis = .horizontal
-    spacing = 14
-    
+  private func setupView() {    
     backgroundColor = ArduinoColorPalette.grayPalette.tint200
     clipsToBounds = true
     layer.cornerRadius = 5
-    
-    addArrangedSubview(backButton)
-    addArrangedSubview(pathLabel)
-    addArrangedSubview(createButton)
+
+    addSubview(stackView)
+
+    stackView.translatesAutoresizingMaskIntoConstraints = false
+    stackView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+    stackView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+    stackView.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
+    stackView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
     
     refreshPath()
   }

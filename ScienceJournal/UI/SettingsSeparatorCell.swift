@@ -19,4 +19,34 @@
 
 import UIKit
 
-class SettingsSeparatorCell: UICollectionViewCell {}
+class SettingsSeparatorCell: UICollectionViewCell {
+  static let margin: CGFloat = 28.0
+  
+  private let separator = UIView()
+  
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    configureCell()
+  }
+
+  required init(coder: NSCoder) {
+    super.init(coder: coder)!
+    configureCell()
+  }
+  
+  // MARK: - View
+
+  private func configureCell() {
+    separator.backgroundColor = UIColor(red: 0.93, green: 0.95, blue: 0.95, alpha: 1)
+    separator.translatesAutoresizingMaskIntoConstraints = false
+    addSubview(separator)
+    configureConstraints()
+  }
+  
+  private func configureConstraints() {
+    separator.heightAnchor.constraint(equalToConstant: 1).isActive = true
+    separator.leadingAnchor.constraint(equalTo: leadingAnchor, constant: SettingsSeparatorCell.margin).isActive = true
+    separator.trailingAnchor.constraint(equalTo: trailingAnchor, constant: SettingsSeparatorCell.margin * -1).isActive = true
+    separator.centerYAnchor.constraint(equalTo: centerYAnchor)
+  }
+}

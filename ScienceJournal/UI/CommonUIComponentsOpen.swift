@@ -20,9 +20,10 @@ import UIKit
 open class CommonUIComponentsOpen: CommonUIComponents {
 
   public func pullToRefreshController(forScrollView scrollView: UIScrollView,
+                                      shouldShowLabel: Bool,
                                       actionBlock: @escaping () -> Void) ->
       PullToRefreshController? {
-    return PullToRefreshController(scrollView: scrollView, actionBlock: actionBlock)
+    return PullToRefreshController(scrollView: scrollView, shouldShowLabel: shouldShowLabel, actionBlock: actionBlock)
   }
 
 }

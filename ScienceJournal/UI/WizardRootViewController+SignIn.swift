@@ -21,19 +21,19 @@ import UIKit
 
 extension WizardRootViewController {
   override func backToSignIn() {
-    guard let vc = childNavigationController?.viewControllers.first(where: { $0 is SignInIntroViewController }) else {
+    guard let vc = childNavigationController.viewControllers.first(where: { $0 is SignInIntroViewController }) else {
       return
     }
-    childNavigationController?.popToViewController(vc, animated: true)
+    childNavigationController.popToViewController(vc, animated: true)
   }
   
   override func backToSignUp(error: [String: Any]?) {
-    guard let vc = childNavigationController?
+    guard let vc = childNavigationController
             .viewControllers
             .first(where: { $0 is SignUpViewController }) as? SignUpViewController else {
       return
     }
     vc.error = error
-    childNavigationController?.popToViewController(vc, animated: true)
+    childNavigationController.popToViewController(vc, animated: true)
   }
 }

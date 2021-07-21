@@ -196,6 +196,11 @@ class ExistingDataOptionsViewController: ScienceJournalCollectionViewController 
       alertController.addAction(claimAction)
       alertController.addAction(cancelAction)
       alertController.accessibilityViewIsModal = true
+      if let cancelButton = alertController.button(for: cancelAction),
+         let okButton = alertController.button(for: claimAction) {
+        alertController.styleAlertCancel(button: cancelButton)
+        alertController.styleAlertOk(button: okButton)
+      }
       self.present(alertController, animated: true)
     } else if option.identifier == Metrics.cellForDeleteAll {
       // Prompt the user to confirm deleting all.
@@ -211,6 +216,11 @@ class ExistingDataOptionsViewController: ScienceJournalCollectionViewController 
       alertController.addAction(deleteAction)
       alertController.addAction(cancelAction)
       alertController.accessibilityViewIsModal = true
+      if let cancelButton = alertController.button(for: cancelAction),
+         let okButton = alertController.button(for: deleteAction) {
+        alertController.styleAlertCancel(button: cancelButton)
+        alertController.styleAlertOk(button: okButton)
+      }
       self.present(alertController, animated: true)
     } else if option.identifier == Metrics.cellForSelect {
       delegate?.existingDataOptionsViewControllerDidSelectSelectExperimentsToSave()

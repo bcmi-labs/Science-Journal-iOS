@@ -25,13 +25,15 @@ import MaterialComponents.MaterialDialogs
 class DriveSyncIntroViewController: WizardViewController {
 
   let accountsManager: AccountsManager
+  let isSignup: Bool
   
   private(set) lazy var introView = DriveSyncIntroView()
 
-  init(accountsManager: AccountsManager) {
+  init(accountsManager: AccountsManager, isSignup: Bool? = nil) {
     
     self.accountsManager = accountsManager
-    
+    self.isSignup = isSignup ?? false
+        
     super.init(nibName: nil, bundle: nil)
   }
   
@@ -49,15 +51,16 @@ class DriveSyncIntroViewController: WizardViewController {
 
     introView.learnMoreButton.addTarget(self, action: #selector(showMoreInfo(_:)), for: .touchUpInside)
     introView.googleDriveButton.addTarget(self, action: #selector(setupGoogleDrive(_:)), for: .touchUpInside)
-    introView.skipButton.addTarget(self, action: #selector(close(_:)), for: .touchUpInside)
+
+    if isSignup {
+      introView.skipButton.addTarget(self, action: #selector(close(_:)), for: .touchUpInside)
+    } else {
+      introView.skipButton.isHidden = true
+    }
   }
 
   @objc private func showMoreInfo(_ sender: UIButton) {
-    let alertController = MDCAlertController(title: nil,
-                                             message: String.driveSyncIntroMoreText)
-    alertController.addAction(MDCAlertAction(title: String.actionOk))
-    alertController.accessibilityViewIsModal = true
-    present(alertController, animated: true)
+    accountsManager.learnMoreDriveSync(fromViewController: self)
   }
 
   @objc private func setupGoogleDrive(_ sender: UIButton) {

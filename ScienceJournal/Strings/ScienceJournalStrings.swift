@@ -29,6 +29,7 @@ extension String {
   static public var accY: String { return "acc_y".localized }
   static public var accZ: String { return "acc_z".localized }
   static public var actionAbout: String { return "action_about".localized }
+  static public var actionAccountSettings: String { return "action_account_settings".localized }
   static public var actionAddCaption: String { return "action_add_caption".localized }
   static public var actionArchive: String { return "action_archive".localized }
   static public var actionArchiveExperimentContentDescription: String { return "action_archive_experiment_content_description".localized }
@@ -110,6 +111,7 @@ extension String {
   static public var appStoreIosGenericChangelog: String { return "app_store_ios_generic_changelog".localized }
   static public var appStoreKeywords: String { return "app_store_keywords".localized }
   static public var appStoreName: String { return "app_store_name".localized }
+  static public var appStoreScreenshots: String { return "app_store_screenshots".localized }
   static public var appStoreSubtitle: String { return "app_store_subtitle".localized }
   static public var archivedBadge: String { return "archived_badge".localized }
   static public var archivedContentDescription: String { return "archived_content_description".localized }
@@ -178,12 +180,17 @@ extension String {
   static public var arduinoSignUpPasswordPlaceholder: String { return "arduino_sign_up_password_placeholder".localized }
   static public var arduinoSignUpSubmitButton: String { return "arduino_sign_up_submit_button".localized }
   static public var arduinoSignUpTermsAndPrivacy: String { return "arduino_sign_up_terms_and_privacy".localized }
+  static public var arduinoSignUpTermsAndPrivacyNotice: String { return "arduino_sign_up_terms_and_privacy_notice".localized }
   static public var arduinoSignUpTermsSubmitButton: String { return "arduino_sign_up_terms_submit_button".localized }
   static public var arduinoSignUpTitle: String { return "arduino_sign_up_title".localized }
   static public var arduinoSignUpTrackingApproval: String { return "arduino_sign_up_tracking_approval".localized }
   static public var arduinoSignUpUsernameExistsError: String { return "arduino_sign_up_username_exists_error".localized }
   static public var arduinoSignUpUsernameInfo: String { return "arduino_sign_up_username_info".localized }
   static public var arduinoSignUpUsernamePlaceholder: String { return "arduino_sign_up_username_placeholder".localized }
+  static public var arduinoTermsAgreement: String { return "arduino_terms_agreement".localized }
+  static public var arduinoTermsAgreementCta: String { return "arduino_terms_agreement_cta".localized }
+  static public var arduinoTermsAgreementLinkLabel: String { return "arduino_terms_agreement_link_label".localized }
+  static public var arduinoTermsAgreementTitle: String { return "arduino_terms_agreement_title".localized }
   static public var availableDevices: String { return "available_devices".localized }
   static public var backBtnContentDescription: String { return "back_btn_content_description".localized }
   static public var backBtnContentDetails: String { return "back_btn_content_details".localized }
@@ -225,6 +232,7 @@ extension String {
   static public var claimAllExperimentsConfirmationActionConfirm: String { return "claim_all_experiments_confirmation_action_confirm".localized }
   static public var claimAllExperimentsConfirmationMessage: String { return "claim_all_experiments_confirmation_message".localized }
   static public var claimAllExperimentsConfirmationMessagePlural: String { return "claim_all_experiments_confirmation_message_plural".localized }
+  static public var claimAllExperimentsConfirmationTitle: String { return "claim_all_experiments_confirmation_title".localized }
   static public var claimAllExperimentsContentDescription: String { return "claim_all_experiments_content_description".localized }
   static public var claimAllExperimentsImmediatelyConfirmationMessage: String { return "claim_all_experiments_immediately_confirmation_message".localized }
   static public var claimAllExperimentsMigrationConfirmationTitle: String { return "claim_all_experiments_migration_confirmation_title".localized }
@@ -317,6 +325,7 @@ extension String {
   static public var driveErrorTemporary: String { return "drive_error_temporary".localized }
   static public var driveErrorUnknown: String { return "drive_error_unknown".localized }
   static public var drive: String { return "drive_sync_cannot_reach_google_drive".localized }
+  static public var driveSyncConfirmButton: String { return "drive_sync_confirm_button".localized }
   static public var driveSyncConflictKeepLocal: String { return "drive_sync_conflict_keep_local".localized }
   static public var driveSyncConflictKeepRemote: String { return "drive_sync_conflict_keep_remote".localized }
   static public var driveSyncConflictMessage: String { return "drive_sync_conflict_message".localized }
@@ -324,6 +333,10 @@ extension String {
   static public var driveSyncCreateFolderButton: String { return "drive_sync_create_folder_button".localized }
   static public var driveSyncCreateFolderDefault: String { return "drive_sync_create_folder_default".localized }
   static public var driveSyncCreateFolderTitle: String { return "drive_sync_create_folder_title".localized }
+  static public var driveSyncDisableCancel: String { return "drive_sync_disable_cancel".localized }
+  static public var driveSyncDisableConfirm: String { return "drive_sync_disable_confirm".localized }
+  static public var driveSyncDisableMessage: String { return "drive_sync_disable_message".localized }
+  static public var driveSyncDisableTitle: String { return "drive_sync_disable_title".localized }
   static public var driveSyncErrorSetupAction: String { return "drive_sync_error_setup_action".localized }
   static public var driveSyncErrorTitle: String { return "drive_sync_error_title".localized }
   static public var driveSyncExportErrorMessage: String { return "drive_sync_export_error_message".localized }
@@ -331,6 +344,7 @@ extension String {
   static public var driveSyncFolderPickerSelect: String { return "drive_sync_folder_picker_select".localized }
   static public var driveSyncFolderPickerText: String { return "drive_sync_folder_picker_text".localized }
   static public var driveSyncFolderPickerTitle: String { return "drive_sync_folder_picker_title".localized }
+  static public var driveSyncInfo: String { return "drive_sync_info".localized }
   static public var driveSyncInformation: String { return "drive_sync_information".localized }
   static public var driveSyncIntroGoogleAction: String { return "drive_sync_intro_google_action".localized }
   static public var driveSyncIntroMore: String { return "drive_sync_intro_more".localized }
@@ -340,12 +354,19 @@ extension String {
   static public var driveSyncIntroTitle: String { return "drive_sync_intro_title".localized }
   static public var driveSyncInvalidTokenErrorMessage: String { return "drive_sync_invalid_token_error_message".localized }
   static public var driveSyncInvalidTokenErrorTitle: String { return "drive_sync_invalid_token_error_title".localized }
+  static public var driveSyncLoadingIndicatorText: String { return "drive_sync_loading_indicator_text".localized }
   static public var driveSyncMissingFolderErrorMessage: String { return "drive_sync_missing_folder_error_message".localized }
   static public var driveSyncMissingFolderErrorTitle: String { return "drive_sync_missing_folder_error_title".localized }
+  static public var driveSyncPrivacyPolicy: String { return "drive_sync_privacy_policy".localized }
   static public var driveSyncRootFolderLabel: String { return "drive_sync_root_folder_label".localized }
+  static public var driveSyncStartButton: String { return "drive_sync_start_button".localized }
+  static public var driveSyncStartNotice: String { return "drive_sync_start_notice".localized }
+  static public var driveSyncStartText: String { return "drive_sync_start_text".localized }
+  static public var driveSyncStartTitle: String { return "drive_sync_start_title".localized }
   static public var driveSyncSummaryButton: String { return "drive_sync_summary_button".localized }
   static public var driveSyncSummaryText: String { return "drive_sync_summary_text".localized }
   static public var driveSyncSummaryTitle: String { return "drive_sync_summary_title".localized }
+  static public var driveSyncTermsOfService: String { return "drive_sync_terms_of_service".localized }
   static public var editCropEndTime: String { return "edit_crop_end_time".localized }
   static public var editCropStartTime: String { return "edit_crop_start_time".localized }
   static public var editExperimentBtnContentDescription: String { return "edit_experiment_btn_content_description".localized }
@@ -462,6 +483,7 @@ extension String {
   static public var navigationGetScienceKit: String { return "navigation_get_science_kit".localized }
   static public var navigationGetScienceKitLink: String { return "navigation_get_science_kit_link".localized }
   static public var navigationGettingStarted: String { return "navigation_getting_started".localized }
+  static public var navigationItemAccountSettings: String { return "navigation_item_account_settings".localized }
   static public var navigationItemActivities: String { return "navigation_item_activities".localized }
   static public var navigationItemExperiments: String { return "navigation_item_experiments".localized }
   static public var navigationItemSettings: String { return "navigation_item_settings".localized }
@@ -474,6 +496,11 @@ extension String {
   static public var noteContentDescriptionTrigger: String { return "note_content_description_trigger".localized }
   static public var notes: String { return "notes".localized }
   static public var notesTabContentDescription: String { return "notes_tab_content_description".localized }
+  static public var nsbluetoothalwaysusagedescription: String { return "NSBluetoothAlwaysUsageDescription".localized }
+  static public var nsbluetoothperipheralusagedescription: String { return "NSBluetoothPeripheralUsageDescription".localized }
+  static public var nscamerausagedescription: String { return "NSCameraUsageDescription".localized }
+  static public var nsmicrophoneusagedescription: String { return "NSMicrophoneUsageDescription".localized }
+  static public var nsphotolibraryusagedescription: String { return "NSPhotoLibraryUsageDescription".localized }
   static public var observeTabContentDescription: String { return "observe_tab_content_description".localized }
   static public var onboarding01QuickTip: String { return "onboarding_01_quick_tip".localized }
   static public var onboarding01Text01: String { return "onboarding_01_text_01".localized }
@@ -665,6 +692,7 @@ extension String {
   static public var serverPermissionDeniedMessage: String { return "server_permission_denied_message".localized }
   static public var serverPermissionDeniedTitle: String { return "server_permission_denied_title".localized }
   static public var serverSwitchAccountsTitle: String { return "server_switch_accounts_title".localized }
+  static public var settingsButton: String { return "settings_advanced_settings_button".localized }
   static public var settingsDataUsageDescription: String { return "settings_data_usage_description".localized }
   static public var settingsDataUsageTitle: String { return "settings_data_usage_title".localized }
   static public var settingsOpenSourceTitle: String { return "settings_open_source_title".localized }
@@ -689,6 +717,7 @@ extension String {
   static public var snapshotFailedDisconnected: String { return "snapshot_failed_disconnected".localized }
   static public var snapshotLabelDetailsTitle: String { return "snapshot_label_details_title".localized }
   static public var snapshotNoteAddedContentDescription: String { return "snapshot_note_added_content_description".localized }
+  static public var sppStoreScreenshots: String { return "spp_store_screenshots".localized }
   static public var statAverage: String { return "stat_average".localized }
   static public var statMax: String { return "stat_max".localized }
   static public var statMin: String { return "stat_min".localized }

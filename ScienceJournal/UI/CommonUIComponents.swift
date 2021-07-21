@@ -23,9 +23,10 @@ public protocol CommonUIComponents: class {
   ///
   /// - Parameters:
   ///   - scrollView: A scroll view.
+  ///   - shouldShowLabel: A boolean indicating whether to show a label below the loading indicator
   ///   - actionBlock: The action block.
   /// - Returns: A pull to refresh controller.
   func pullToRefreshController(forScrollView scrollView: UIScrollView,
+                               shouldShowLabel: Bool,
                                actionBlock: @escaping () -> Void) -> PullToRefreshController?
-
 }

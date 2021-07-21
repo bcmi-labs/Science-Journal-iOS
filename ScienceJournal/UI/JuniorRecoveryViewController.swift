@@ -55,7 +55,11 @@ class JuniorRecoveryViewController: WizardViewController {
   @objc private func showInfo(_ sender: UIButton) {
     let alertController = MDCAlertController(title: nil,
                                              message: String.arduinoPasswordJuniorRecoveryHint)
+    let okAction = MDCAlertAction(title: String.actionOk)
     alertController.addAction(MDCAlertAction(title: String.actionOk))
+    if let okButton = alertController.button(for: okAction) {
+      alertController.styleAlertOk(button: okButton)
+    }
     alertController.accessibilityViewIsModal = true
     present(alertController, animated: true)
   }

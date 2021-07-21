@@ -67,8 +67,12 @@ class SignUpViewController: WizardViewController {
   @objc private func showInfo(_ sender: UIButton) {
     let alertController = MDCAlertController(title: nil,
                                              message: String.arduinoSignUpUsernameInfo)
-    alertController.addAction(MDCAlertAction(title: String.actionOk))
+    let okAction = MDCAlertAction(title: String.actionOk)
+    alertController.addAction(okAction)
     alertController.accessibilityViewIsModal = true
+    if let okButton = alertController.button(for: okAction) {
+      alertController.styleAlertOk(button: okButton)
+    }
     present(alertController, animated: true)
   }
   

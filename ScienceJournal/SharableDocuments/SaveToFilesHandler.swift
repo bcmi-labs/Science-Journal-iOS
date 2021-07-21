@@ -104,6 +104,11 @@ class SaveToFilesHandler: NSObject, UIDocumentPickerDelegate {
             alertController.addAction(cancelAction)
             alertController.addAction(okAction)
             alertController.accessibilityViewIsModal = true
+            if let cancelButton = alertController.button(for: cancelAction),
+               let okButton = alertController.button(for: okAction) {
+              alertController.styleAlertCancel(button: cancelButton)
+              alertController.styleAlertOk(button: okButton)
+            }
             presentingViewController.present(alertController, animated: true)
           }
         }

@@ -27,38 +27,39 @@ protocol SidebarDelegate: class {
 
 /// Represents rows in the sidebar that provides titles and icons for each item.
 enum SidebarRow {
-  case experiments
   case settings
   case feedback
   case onboarding
   case activities
   case help
   case scienceKit
-  case about
+  case privacy
+  case terms
 
   var title: String {
+
     switch self {
-    case .experiments: return String.navigationItemExperiments
-    case .settings: return String.navigationItemSettings
+    case .settings: return String.actionAccountSettings
     case .feedback: return String.actionFeedback
     case .onboarding: return String.navigationGettingStarted
     case .activities: return String.navigationActivities
     case .help: return String.navigationGetHelp
     case .scienceKit: return String.navigationGetScienceKit
-    case .about: return String.actionAbout
+    case .privacy: return String.settingsPrivacyPolicyTitle
+    case .terms: return String.driveSyncTermsOfService
     }
   }
 
   var icon: String {
     switch self {
-    case .experiments: return "ic_experiment_36pt"
     case .settings: return "ic_settings_36pt"
     case .feedback: return "ic_feedback_36pt"
     case .onboarding: return "ic_onboarding_36pt"
     case .activities: return "ic_activities_36pt"
     case .help: return "ic_help_36pt"
     case .scienceKit: return "ic_science_kit_36pt"
-    case .about: return "ic_info_36pt"
+    case .privacy: return "ic_privacy_36pt"
+    case .terms: return "ic_info_36pt"
     }
   }
 
@@ -106,23 +107,50 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
 
   // MARK: - DataSource
 
-  var menuStructure: [SidebarRow] {
-    if let account = accountsManager.currentAccount, account.type == .kid {
+  var menuFirstSection: [SidebarRow] {
+    let account = accountsManager.currentAccount
+    if account?.type == .adult {
       return [
-        .experiments,
         .activities,
+        .scienceKit,
+        .help,
+      ]
+    } else if account?.type == .kid {
+      return [
         .onboarding,
-        .about
+        .settings,
+        .privacy,
+        .terms,
+      ]
+    } else {
+      // not logged in
+      return [
+        .activities,
+        .scienceKit,
+        .help,
       ]
     }
-    return [
-      .experiments,
-      .activities,
-      .scienceKit,
-      .help,
-      .onboarding,
-      .about
-    ]
+  }
+
+  var menuSecondSection: [SidebarRow] {
+    let account = accountsManager.currentAccount
+    if account?.type == .adult {
+      return [
+        .onboarding,
+        .settings,
+        .privacy,
+        .terms,
+      ]
+    } else if account?.type == .kid {
+      return []
+    } else {
+      // not logged in
+      return [
+        .onboarding,
+        .privacy,
+        .terms,
+      ]
+    }
   }
 
   // MARK: - Constants
@@ -133,6 +161,8 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
   let dragWidthThresholdClose: CGFloat = -125.0
   let headerCellIdentifier = "SidebarHeaderCell"
   let headerHeight: CGFloat = 150  // image plus a 10.0 inner vertical gap.
+  let separatorCellIdentifier = "SidebarSeparatorCell"
+  let separatorHeight: CGFloat = 40
   let sidebarMaxWidth: CGFloat = 290.0
   let velocityCap: CGFloat = 600.0
   var wrapperViewTopConstraint: NSLayoutConstraint?
@@ -155,22 +185,6 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
   private let dimmingView = UIView()
   private let wrapperView = ShadowedView()
   private let accountView = SidebarAccountView()
-  
-  private let privacyPolicyButton: UIButton = {
-    let button = UIButton(type: .system)
-    
-    let title = NSMutableAttributedString(string: String.settingsPrivacyPolicyTitle,
-                                          attributes: [
-                                            .font: ArduinoTypography.regularFont(forSize: 14),
-                                            .foregroundColor: ArduinoColorPalette.grayPalette.tint500!,
-                                            .underlineStyle: NSUnderlineStyle.single.rawValue
-                                          ])
-    button.setAttributedTitle(title, for: .normal)
-    
-    button.addTarget(self, action: #selector(showPrivacyPolicy(_:)), for: .touchUpInside)
-    
-    return button
-  }()
   
   private var collectionEdgeInsets: UIEdgeInsets {
     // In RTL, this will add right side inset to the items.
@@ -199,6 +213,9 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
     collectionView.register(SidebarHeaderCell.self,
                             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                             withReuseIdentifier: headerCellIdentifier)
+    collectionView.register(SidebarSeparatorCell.self,
+                            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                            withReuseIdentifier: separatorCellIdentifier)
 
     view.backgroundColor = .clear
     accessibilityViewIsModal = true
@@ -260,12 +277,6 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
         accountView.showNoAccount()
       }
       
-      wrapperView.addSubview(privacyPolicyButton)
-      privacyPolicyButton.translatesAutoresizingMaskIntoConstraints = false
-      NSLayoutConstraint.activate([
-        privacyPolicyButton.centerXAnchor.constraint(equalTo: wrapperView.centerXAnchor),
-        privacyPolicyButton.bottomAnchor.constraint(equalTo: accountView.topAnchor, constant: -16),
-      ])
     } else {
       // Without an account footer, the collectionView is pinned to the bottom of the wrapper.
       collectionView.bottomAnchor.constraint(equalTo: wrapperView.bottomAnchor).isActive = true
@@ -311,11 +322,6 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
   override func accessibilityPerformEscape() -> Bool {
     hide()
     return true
-  }
-
-  @objc func showPrivacyPolicy(_ sender: UIButton) {
-    let vc = SFSafariViewController(url: Constants.ArduinoSignIn.privacyPolicyUrl)
-    present(vc, animated: true, completion: nil)
   }
   
   // MARK: - Private
@@ -420,8 +426,12 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
 
   @objc func collectionView(_ collectionView: UICollectionView,
                             layout: UICollectionViewLayout,
-                            referenceSizeForHeaderInSection: Int) -> CGSize {
-    return CGSize(width: view.bounds.size.width, height: headerHeight)
+                            referenceSizeForHeaderInSection section: Int) -> CGSize {
+    if section == 0 {
+      return CGSize(width: view.bounds.size.width, height: headerHeight)
+    } else {
+      return CGSize(width: view.bounds.size.width, height: separatorHeight)
+    }
   }
 
   @objc func collectionView(_ collectionView: UICollectionView,
@@ -433,16 +443,33 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
 
   func collectionView(_ collectionView: UICollectionView,
                       numberOfItemsInSection section: Int) -> Int {
-    return menuStructure.count
+
+    if section == 0 {
+      return menuFirstSection.count
+    } else {
+      return menuSecondSection.count
+    }
+  }
+
+  func numberOfSections(in collectionView: UICollectionView) -> Int { 
+    return 2
   }
 
   func collectionView(_ collectionView: UICollectionView,
                       viewForSupplementaryElementOfKind kind: String,
                       at indexPath: IndexPath) -> UICollectionReusableView {
-    return collectionView.dequeueReusableSupplementaryView(
-        ofKind: UICollectionView.elementKindSectionHeader,
-        withReuseIdentifier: headerCellIdentifier,
-        for: indexPath)
+    
+    if indexPath.section == 0 {
+      return collectionView.dequeueReusableSupplementaryView(
+          ofKind: UICollectionView.elementKindSectionHeader,
+          withReuseIdentifier: headerCellIdentifier,
+          for: indexPath)
+    } else {
+      return collectionView.dequeueReusableSupplementaryView(
+          ofKind: UICollectionView.elementKindSectionHeader,
+          withReuseIdentifier: separatorCellIdentifier,
+          for: indexPath)
+    }
   }
 
   func collectionView(_ collectionView: UICollectionView,
@@ -450,7 +477,7 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier,
                                                   for: indexPath)
     if let cell = cell as? SidebarCell {
-      let cellData = menuStructure[indexPath.item]
+      let cellData = indexPath.section == 0 ? menuFirstSection[indexPath.item] : menuSecondSection[indexPath.item]
       cell.titleLabel.text = cellData.title
       cell.accessibilityLabel = cell.titleLabel.text
       cell.iconView.image = UIImage(named: cellData.icon)
@@ -462,7 +489,11 @@ class SidebarViewController: UIViewController, UICollectionViewDelegate, UIColle
   func collectionView(_ collectionView: UICollectionView,
                       didSelectItemAt indexPath: IndexPath) {
     hide {
-      self.delegate?.sidebarShouldShow(self.menuStructure[indexPath.item])
+      if indexPath.section == 0 {
+        self.delegate?.sidebarShouldShow(self.menuFirstSection[indexPath.item])
+      } else {
+        self.delegate?.sidebarShouldShow(self.menuSecondSection[indexPath.item])
+      }
     }
   }
 

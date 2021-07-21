@@ -171,9 +171,7 @@ class DriveSyncFolderPickerViewController: WizardViewController {
       return
     }
     
-    let viewController = DriveSyncSummaryViewController(user: user,
-                                                        folder: selectedFolder,
-                                                        accountsManager: accountsManager)
+    let viewController = DriveSyncSummaryViewController(user: user, folder: selectedFolder, accountsManager: accountsManager)
     show(viewController, sender: nil)
   }
 }

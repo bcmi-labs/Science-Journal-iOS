@@ -15,7 +15,6 @@
  */
 
 import UIKit
-import SnapKit
 
 protocol PDFExportable {
   var scrollView: UIScrollView { get }
@@ -141,9 +140,11 @@ final class PDFExportController: UIViewController {
     addChild(overlayViewController)
     view.addSubview(overlayViewController.view)
     overlayViewController.didMove(toParent: self)
-    overlayViewController.view.snp.makeConstraints { make in
-      make.edges.equalToSuperview()
-    }
+    overlayViewController.view.translatesAutoresizingMaskIntoConstraints = false
+    overlayViewController.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+    overlayViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    overlayViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+    overlayViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
   }
 
   private func completion(state: CompletionState) {

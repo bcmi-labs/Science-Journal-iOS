@@ -29,38 +29,28 @@ class WizardRootViewController: UIViewController {
     didSet {
       guard isViewLoaded else { return }
       guard let viewController = initialViewController else { return }
-      childNavigationController?.setViewControllers([viewController], animated: true)
+      childNavigationController.setViewControllers([viewController], animated: true)
     }
   }
   
-  var childNavigationController: UINavigationController? {
-    didSet {
-      oldValue?.delegate = nil
-      childNavigationController?.delegate = self
-      childNavigationController?.navigationBar.titleTextAttributes = [
-        NSAttributedString.Key.font: ArduinoTypography.boldFont(forSize: 20),
-        NSAttributedString.Key.foregroundColor: ArduinoColorPalette.tealPalette.tint800!
-      ]
-    }
-  }
+  let childNavigationController = WizardNavigationController()
   
-  @IBOutlet private weak var footerView: WizardFooterView! {
-    didSet {
-      footerView.clipsToBounds = false
-      footerView.layer.shadowColor = UIColor.black.withAlphaComponent(0.12).cgColor
-      footerView.layer.shadowOffset = CGSize(width: 0, height: -3)
-      footerView.layer.shadowOpacity = 1
-      footerView.layer.shadowRadius = 0
-    }
-  }
+  let footerView = WizardFooterView()
+  let childContainer = UIView()
   
   private var disposeBag: DisposeBag?
   
+  override func loadView() {
+    view = UIView()
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    configureView()
+    configureConstraints()
+    addChildNavigation()
     if let viewController = initialViewController {
-      childNavigationController?.setViewControllers([viewController], animated: true)
+      childNavigationController.setViewControllers([viewController], animated: true)
     }
   }
   
@@ -69,13 +59,45 @@ class WizardRootViewController: UIViewController {
     footerView.layer.shadowPath = UIBezierPath(rect: footerView.bounds).cgPath
   }
   
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "childNavigationController",
-       let navigationController = segue.destination as? UINavigationController {
-      childNavigationController = navigationController
-    } else {
-      super.prepare(for: segue, sender: sender)
-    }
+  private func configureView() {
+    childContainer.translatesAutoresizingMaskIntoConstraints = false
+    childContainer.clipsToBounds = true
+    view.addSubview(childContainer)
+    
+    footerView.clipsToBounds = false
+    footerView.layer.shadowColor = UIColor.black.withAlphaComponent(0.12).cgColor
+    footerView.layer.shadowOffset = CGSize(width: 0, height: -3)
+    footerView.layer.shadowOpacity = 1
+    footerView.layer.shadowRadius = 0
+    footerView.translatesAutoresizingMaskIntoConstraints = false
+    footerView.termsButton.addTarget(self, action: #selector(showTermsOfService), for: .touchUpInside)
+    footerView.privacyButton.addTarget(self, action: #selector(showPrivacyPolicy), for: .touchUpInside)
+    view.addSubview(footerView)
+    
+    childNavigationController.navigationBar.titleTextAttributes = [
+      NSAttributedString.Key.font: ArduinoTypography.boldFont(forSize: 20),
+      NSAttributedString.Key.foregroundColor: ArduinoColorPalette.tealPalette.tint800!
+    ]
+  }
+  
+  private func configureConstraints() {
+    footerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+    footerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+    footerView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    footerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -42).isActive = true
+    
+    childContainer.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+    childContainer.bottomAnchor.constraint(equalTo: footerView.topAnchor).isActive = true
+    childContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+    childContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+  }
+  
+  private func addChildNavigation() {
+    childNavigationController.delegate = self
+    addChild(childNavigationController)
+    childNavigationController.view.frame = childContainer.frame
+    childContainer.addSubview(childNavigationController.view)
+    childNavigationController.didMove(toParent: self)
   }
   
   func close(isCancelled: Bool) {
@@ -87,13 +109,13 @@ class WizardRootViewController: UIViewController {
     close(isCancelled: true)
   }
   
-  @IBAction
+  @objc
   func showTermsOfService() {
-    let vc = SFSafariViewController(url: Constants.ArduinoSignIn.termsOfServiceUrl)
+    let vc = SFSafariViewController(url: Constants.ArduinoScienceJournalURLs.sjTermsOfServiceUrl)
     present(vc, animated: true, completion: nil)
   }
   
-  @IBAction
+  @objc
   func showPrivacyPolicy() {
     let vc = SFSafariViewController(url: Constants.ArduinoSignIn.privacyPolicyUrl)
     present(vc, animated: true, completion: nil)

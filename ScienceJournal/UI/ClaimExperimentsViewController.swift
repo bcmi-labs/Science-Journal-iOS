@@ -227,6 +227,11 @@ class ClaimExperimentsViewController: MaterialHeaderViewController, ClaimExperim
       alertController.addAction(deleteAction)
       alertController.addAction(cancelAction)
       alertController.accessibilityViewIsModal = true
+      if let cancelButton = alertController.button(for: cancelAction),
+         let okButton = alertController.button(for: deleteAction) {
+        alertController.styleAlertCancel(button: cancelButton)
+        alertController.styleAlertOk(button: okButton)
+      }
       self.present(alertController, animated: true)
     })
 
@@ -237,7 +242,7 @@ class ClaimExperimentsViewController: MaterialHeaderViewController, ClaimExperim
     // Prompt the user to confirm claiming all.
     let message = String.claimExperimentsClaimAllConfirmationMessage(withItemCount:
         self.experimentsListItemsViewController.itemCount, email: self.authAccount.displayName)
-    let alertController = MDCAlertController(title: nil, message: message)
+    let alertController = MDCAlertController(title: String.claimAllExperimentsConfirmationTitle, message: message)
     let claimAction =
         MDCAlertAction(title: String.claimAllExperimentsConfirmationActionConfirm) { _ in
       self.delegate?.claimExperimentsClaimAllExperiments()
@@ -246,6 +251,11 @@ class ClaimExperimentsViewController: MaterialHeaderViewController, ClaimExperim
     alertController.addAction(claimAction)
     alertController.addAction(cancelAction)
     alertController.accessibilityViewIsModal = true
+    if let cancelButton = alertController.button(for: cancelAction),
+       let okButton = alertController.button(for: claimAction) {
+      alertController.styleAlertCancel(button: cancelButton)
+      alertController.styleAlertOk(button: okButton)
+    }
     self.present(alertController, animated: true)
   }
 
@@ -272,6 +282,11 @@ class ClaimExperimentsViewController: MaterialHeaderViewController, ClaimExperim
     alertController.addAction(claimAction)
     alertController.addAction(cancelAction)
     alertController.accessibilityViewIsModal = true
+    if let cancelButton = alertController.button(for: cancelAction),
+       let okAction = alertController.button(for: claimAction) {
+      alertController.styleAlertCancel(button: cancelButton)
+      alertController.styleAlertOk(button: okAction)
+    }
     present(alertController, animated: true)
   }
 
@@ -293,9 +308,14 @@ class ClaimExperimentsViewController: MaterialHeaderViewController, ClaimExperim
     alertController.addAction(cancelAction)
     alertController.addAction(deleteAction)
     alertController.accessibilityViewIsModal = true
+    if let cancelButton = alertController.button(for: cancelAction),
+       let okButton = alertController.button(for: deleteAction) {
+      alertController.styleAlertCancel(button: cancelButton)
+      alertController.styleAlertOk(button: okButton)
+    }
     present(alertController, animated: true)
   }
-
+  
 }
 
 // MARK:- UIViewControllerTransitioningDelegate

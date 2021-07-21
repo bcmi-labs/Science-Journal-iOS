@@ -33,6 +33,11 @@ public struct Constants {
     public static let activities = URL(string: String.navigationActivitiesLink)!
     public static let help = URL(string: String.navigationGetHelpLink)!
     public static let scienceKit = URL(string: String.navigationGetScienceKitLink)!
+    public static let advancedSettings = "https://id.arduino.cc/"
+  }
+
+  public struct ArduinoScienceJournalURLs {
+    public static let sjTermsOfServiceUrl = URL(string: "https://www.arduino.cc/en/sj-terms-conditions/?embed")!
   }
   
   public struct GoogleSignInScopes {
@@ -44,6 +49,8 @@ public struct Constants {
   
   public struct Drive {
     public static let experimentLibraryProtoFilename = "experiment_library.proto"
+    public static let driveTermsOfServiceUrl = URL(string: "https://www.google.com/drive/terms-of-service/")!
+    public static let drivePrivacyPolicyUrl = URL(string: "https://policies.google.com/privacy")!
   }
 
 }

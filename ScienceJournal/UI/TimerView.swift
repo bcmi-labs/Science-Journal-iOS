@@ -83,7 +83,6 @@ final class TimerView: UIView {
   // MARK: - Private
 
   private func configureView() {
-    snp.setLabel("TimerView")
     layoutMargins = Metrics.overallLayoutMargins
 
     let contentView : UIView = {
@@ -102,29 +101,25 @@ final class TimerView: UIView {
     }()
 
     addSubview(contentView)
-    contentView.snp.setLabel("wrapperView")
-    contentView.snp.makeConstraints { (make) in
-      make.leading.equalTo(snp.leadingMargin)
-      make.trailing.equalTo(snp.trailingMargin)
-      make.centerY.equalToSuperview()
-    }
+    contentView.translatesAutoresizingMaskIntoConstraints = false
+    contentView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor).isActive = true
+    contentView.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor).isActive = true
+    contentView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
 
     contentView.addSubview(dotView)
-    dotView.snp.setLabel("dotView")
-    dotView.snp.makeConstraints { (make) in
-      make.leading.equalTo(contentView.snp.leadingMargin)
-      make.centerY.equalToSuperview()
-      make.size.equalTo(Metrics.dotDimension)
-    }
+    dotView.translatesAutoresizingMaskIntoConstraints = false
+    dotView.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor).isActive = true
+    dotView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+    dotView.heightAnchor.constraint(equalToConstant: Metrics.dotDimension).isActive = true
+    dotView.widthAnchor.constraint(equalToConstant: Metrics.dotDimension).isActive = true
 
     contentView.addSubview(timerLabel)
-    timerLabel.snp.setLabel("timerLabel")
-    timerLabel.snp.makeConstraints { (make) in
-      make.top.equalTo(contentView.snp.topMargin)
-      make.trailing.equalTo(contentView.snp.trailingMargin)
-      make.bottom.equalTo(contentView.snp.bottomMargin)
-      make.leading.equalTo(dotView.snp.trailing).offset(Metrics.spacing)
-    }
+    timerLabel.translatesAutoresizingMaskIntoConstraints = false
+    timerLabel.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor).isActive = true
+    timerLabel.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor).isActive = true
+    timerLabel.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor).isActive = true
+    timerLabel.leadingAnchor.constraint(equalTo: dotView.trailingAnchor, constant: Metrics.spacing).isActive = true
+    
     timerLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
     timerLabel.setContentHuggingPriority(.required, for: .horizontal)
     timerLabel.setContentCompressionResistancePriority(.required, for: .vertical)

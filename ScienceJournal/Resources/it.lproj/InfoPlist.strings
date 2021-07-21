@@ -1,5 +1,5 @@
-"NSBluetoothAlwaysUsageDescription" = "Science Journal uses Bluetooth to connect to external sensors and capture their data in experiments.";
-"NSBluetoothPeripheralUsageDescription" = "Science Journal uses Bluetooth to connect to external sensors and capture their data in experiments.";
-"NSCameraUsageDescription" = "Science Journal uses the camera to include photos in experiment notes or to measure ambient light.";
-"NSMicrophoneUsageDescription" = "Science Journal uses the microphone to measure sound intensity.";
-"NSPhotoLibraryUsageDescription" = "Science Journal uses the photo library to include photos in experiment notes.";
+"NSBluetoothAlwaysUsageDescription" = "Science Journal utilizza il Bluetooth per connettersi a sensori esterni e acquisire i loro dati negli esperimenti.";
+"NSBluetoothPeripheralUsageDescription" = "Science Journal utilizza il Bluetooth per connettersi a sensori esterni e acquisire i loro dati negli esperimenti.";
+"NSCameraUsageDescription" = "Science Journal utilizza la fotocamera per includere foto nelle note dell'esperimento o per misurare la luce ambientale.";
+"NSMicrophoneUsageDescription" = "Science Journal utilizza il microfono per misurare l'intensità del suono.";
+"NSPhotoLibraryUsageDescription" = "Science Journal utilizza la libreria di foto per includere foto nelle note dell'esperimento.";

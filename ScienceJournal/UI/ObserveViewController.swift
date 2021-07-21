@@ -434,6 +434,9 @@ open class ObserveViewController: ScienceJournalCollectionViewController, ChartC
     let alert = MDCAlertController(title: title, message: message)
     let cancelAction = MDCAlertAction(title: dismissTitle ?? String.actionCancel)
     alert.addAction(cancelAction)
+    if let cancelButton = alert.button(for: cancelAction) {
+      alert.styleAlertCancel(button: cancelButton)
+    }
     present(alert, animated: true)
     return alert
   }

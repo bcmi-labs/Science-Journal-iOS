@@ -84,9 +84,8 @@ private extension PDFExportOverlayViewController {
     wrappingStackView.axis = .vertical
     wrappingStackView.alignment = .center
     wrappingStackView.spacing = Metrics.stackViewSpacing
-    wrappingStackView.snp.makeConstraints { make in
-      make.center.equalToSuperview()
-    }
+    wrappingStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    wrappingStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
   }
 
   @objc private func cancelButtonPressed() {

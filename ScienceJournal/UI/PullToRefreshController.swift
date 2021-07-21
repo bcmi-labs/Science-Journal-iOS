@@ -23,16 +23,27 @@ public class PullToRefreshController {
 
   private let scrollView: UIScrollView
   private let refreshControl: UIRefreshControl
+  let shouldShowLabel: Bool
   
   /// Initializes the pull to refresh controller for a scroll view with an action block.
   ///
   /// - Parameters:
   ///   - scrollView: The scroll view.
+  ///   - shouldShowLabel: Whether to show a label below the loading indicator
   ///   - actionBlock: The action block.
-  init(scrollView: UIScrollView, actionBlock: @escaping () -> Void) {
+  init(scrollView: UIScrollView, shouldShowLabel: Bool, actionBlock: @escaping () -> Void) {
     self.actionBlock = actionBlock
     self.scrollView = scrollView
     self.refreshControl = UIRefreshControl()
+    self.shouldShowLabel = shouldShowLabel
+
+    if shouldShowLabel {
+      let mutableAttributedString = NSMutableAttributedString.init(string: String.driveSyncLoadingIndicatorText)
+      mutableAttributedString.addAttribute(NSAttributedString.Key.foregroundColor, 
+              value: ArduinoColorPalette.grayPalette.tint400,
+              range: NSRange(location: 0, length: mutableAttributedString.length))
+      refreshControl.attributedTitle = mutableAttributedString
+    }
     
     refreshControl.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
     scrollView.refreshControl = refreshControl

@@ -22,6 +22,8 @@ import MaterialComponents.MaterialDialogs
 
 import GoogleAPIClientForREST
 
+import SafariServices
+
 protocol UserFlowViewControllerDelegate: class {
   /// Tells the delegate to present the account selector so a user can change or remove accounts.
   func presentAccountSelector()
@@ -187,7 +189,7 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
 
   override open func viewDidLoad() {
     super.viewDidLoad()
-
+    
     if FeatureFlags.isActionAreaEnabled {
       addChild(_actionAreaController)
       view.addSubview(_actionAreaController.view)
@@ -219,6 +221,11 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
                                            name: UIApplication.didEnterBackgroundNotification,
                                            object: nil)
 
+    NotificationCenter.default.addObserver(self,
+                                           selector: #selector(showOnboardingAfterTerms),
+                                           name: .userHasAcceptedTerms,
+                                           object: nil) 
+
     // Listen to notifications of newly imported experiments.
     NotificationCenter.default.addObserver(self,
                                            selector: #selector(experimentImportBegan),
@@ -240,6 +247,21 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
     // Generate the default experiment if necessary.
     createDefaultExperimentIfNecessary()
 
+    let userHasAcceptedTerms = UserDefaults.standard.string(forKey: "termsAccepted")
+
+    // If the user hasn't accepted the new T&C's, show modal
+    if userHasAcceptedTerms == nil {
+     let vc = TermsAgreementViewController()
+      vc.modalPresentationStyle = .fullScreen
+      self.present(vc, animated: true, completion: nil)
+    } else if !devicePreferenceManager.hasAUserViewedOnboarding {
+      // if the user has acceppted the T&C's but hasn't seen the Onboarding yet
+      // Present the Onboarding
+      showOnboarding()
+    }
+  }
+
+  @objc private func showOnboardingAfterTerms() {
     if !devicePreferenceManager.hasAUserViewedOnboarding {
       showOnboarding()
     }
@@ -349,6 +371,9 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
         let alert = MDCAlertController(title: nil, message: errorMessage)
         let cancelAction = MDCAlertAction(title: String.actionOk)
         alert.addAction(cancelAction)
+        if let cancelButton = alert.button(for: cancelAction) {
+          alert.styleAlertCancel(button: cancelButton)
+        }
         guard var topViewController = self.navController.topViewController else { return }
         if let presentedViewController = topViewController.presentedViewController {
           // On iPad, the welcome flow is in a presented view controller, so the alert must be
@@ -372,19 +397,6 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
 
   func sidebarShouldShow(_ item: SidebarRow) {
     switch item {
-    case .about:
-      let aboutVC = AboutViewController(analyticsReporter: analyticsReporter)
-      guard UIDevice.current.userInterfaceIdiom == .pad else {
-        navController.pushViewController(aboutVC, animated: true)
-        return
-      }
-      // iPad should present modally in a navigation controller of its own since About has
-      // sub-navigation items.
-      let aboutNavController = UINavigationController()
-      aboutNavController.viewControllers = [ aboutVC ]
-      aboutNavController.isNavigationBarHidden = true
-      aboutNavController.modalPresentationStyle = .formSheet
-      present(aboutNavController, animated: true)
     case .settings:
       let settingsVC = SettingsViewController(analyticsReporter: analyticsReporter,
                                               driveSyncManager: driveSyncManager,
@@ -420,6 +432,12 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
         completionHandler: nil)
     case .onboarding:
       showOnboarding()
+    case .privacy:
+      let privacyVC = SFSafariViewController(url: Constants.ArduinoSignIn.privacyPolicyUrl)
+      present(privacyVC, animated: true, completion: nil)
+    case .terms: 
+      let termsVC = SFSafariViewController(url: Constants.ArduinoScienceJournalURLs.sjTermsOfServiceUrl)
+      present(termsVC, animated: true, completion: nil)
     default:
       break
     }
@@ -885,8 +903,12 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
     if isExperimentTooNewToEdit(experiment) {
       let alertController = MDCAlertController(title: nil,
                                                message: String.experimentVersionTooNewToEdit)
-      alertController.addAction(MDCAlertAction(title: String.actionOk))
+      let okAction = MDCAlertAction(title: String.actionOk)
+      alertController.addAction(okAction)
       alertController.accessibilityViewIsModal = true
+      if let okButton = alertController.button(for: okAction) {
+        alertController.styleAlertOk(button: okButton)
+      }
       experimentCoordinatorVC.present(alertController, animated: true)
     }
 
@@ -1233,7 +1255,7 @@ class UserFlowViewController: UIViewController, ExperimentsListViewControllerDel
   }
 
   private func showOnboarding() {
-    let onboardingVC: OnboardingViewController = OnboardingViewController.fromNib()
+    let onboardingVC: OnboardingViewController = OnboardingViewController()
     onboardingVC.modalPresentationStyle = .formSheet
     onboardingVC.onClose = { [weak onboardingVC] in
       onboardingVC?.dismiss(animated: true, completion: nil)
@@ -1459,12 +1481,17 @@ extension UserFlowViewController {
       let alert = MDCAlertController(title: String.driveSyncInvalidTokenErrorTitle,
                                      message: String.driveSyncInvalidTokenErrorMessage)
       let setupAction = MDCAlertAction(title: String.driveSyncErrorSetupAction) { [unowned self] _ in
-        self.accountsManager.setupDriveSync(fromViewController: self)
+        self.accountsManager.setupDriveSync(fromViewController: self, isSignup: false)
       }
       let cancelAction = MDCAlertAction(title: String.actionCancel)
       alert.addAction(setupAction)
       alert.addAction(cancelAction)
       alert.accessibilityViewIsModal = true
+      if let cancelButton = alert.button(for: cancelAction),
+         let okButton = alert.button(for: setupAction) {
+        alert.styleAlertCancel(button: cancelButton)
+        alert.styleAlertOk(button: okButton)
+      }
       self.present(alert, animated: true)
       alertController = nil
       
@@ -1472,12 +1499,17 @@ extension UserFlowViewController {
       let alert = MDCAlertController(title: String.driveSyncMissingFolderErrorTitle,
                                      message: String.driveSyncMissingFolderErrorMessage)
       let setupAction = MDCAlertAction(title: String.driveSyncErrorSetupAction) { [unowned self] _ in
-        self.accountsManager.setupDriveSync(fromViewController: self)
+        self.accountsManager.setupDriveSync(fromViewController: self, isSignup: false)
       }
       let cancelAction = MDCAlertAction(title: String.actionCancel)
       alert.addAction(setupAction)
       alert.addAction(cancelAction)
       alert.accessibilityViewIsModal = true
+      if let cancelButton = alert.button(for: cancelAction),
+         let okButton = alert.button(for: setupAction) {
+        alert.styleAlertCancel(button: cancelButton)
+        alert.styleAlertOk(button: okButton)
+      }
       self.present(alert, animated: true)
       alertController = nil
     default:
@@ -1509,6 +1541,11 @@ extension UserFlowViewController {
     alert.addAction(keepAction)
     alert.addAction(discardAction)
     alert.accessibilityViewIsModal = true
+    if let cancelButton = alert.button(for: keepAction),
+       let okButton = alert.button(for: discardAction) {
+      alert.styleAlertCancel(button: cancelButton)
+      alert.styleAlertOk(button: okButton)
+    }
     present(alert, animated: true)
   }
   
@@ -1528,6 +1565,9 @@ extension UserFlowViewController {
     let okAction = MDCAlertAction(title: String.actionOk) { _ in }
     alert.addAction(okAction)
     alert.accessibilityViewIsModal = true
+    if let okButton = alert.button(for: okAction) {
+      alert.styleAlertOk(button: okButton)
+    }
     present(alert, animated: true)
   }
 }

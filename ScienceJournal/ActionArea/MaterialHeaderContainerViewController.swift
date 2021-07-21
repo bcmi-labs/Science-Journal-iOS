@@ -34,10 +34,11 @@ final class MaterialHeaderContainerViewController: ContentContainerViewControlle
       appBar.configure(attachTo: self)
     }
 
-    content.view.snp.makeConstraints { make in
-      make.top.equalTo(appBar.navigationBar.snp.bottom)
-      make.leading.bottom.trailing.equalToSuperview()
-    }
+    content.view.translatesAutoresizingMaskIntoConstraints = false
+    content.view.topAnchor.constraint(equalTo: appBar.navigationBar.bottomAnchor).isActive = true
+    content.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+    content.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+    content.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
   }
 
   override var description: String {

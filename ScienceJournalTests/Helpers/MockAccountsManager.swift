@@ -56,9 +56,11 @@ class MockAccountsManager: AccountsManager {
   
   func handle(redirectURL url: URL) -> Bool { return false }
   
-  func setupDriveSync(fromViewController viewController: UIViewController) {}
+  func setupDriveSync(fromViewController viewController: UIViewController, isSignup: Bool) {}
   
   func enableDriveSync(with user: GIDGoogleUser, folderID: String, folderName: String) {}
   
   func disableDriveSync() {}
+
+  func learnMoreDriveSync(fromViewController viewController: UIViewController) {}
 }

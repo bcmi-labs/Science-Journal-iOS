@@ -14,7 +14,6 @@
  *  limitations under the License.
  */
 
-import SnapKit
 import UIKit
 
 /// Mutually exclusive Auto Layout constraints.
@@ -54,20 +53,12 @@ struct MutuallyExclusiveConstraints<Key: Hashable> {
 
 extension MutuallyExclusiveConstraints {
 
-  /// Convenience initializer for converting SnapKit constraints to native constraints.
-  ///
-  /// - Parameters:
-  ///   - constraints: The constraints to convert.
-  init(constraints: [Key: [Constraint]]) {
-    self.constraints = constraints.mapValues { $0.flatMap { $0.layoutConstraints } }
-  }
-
   /// Convenience initializer to build constraints.
   ///
   /// - Parameters:
   ///   - build: The block to execute to build the constraints.
-  init(build: (inout [Key: [Constraint]]) -> Void) {
-    var constraints: [Key: [Constraint]] = [:]
+  init(build: (inout [Key: [NSLayoutConstraint]]) -> Void) {
+    var constraints: [Key: [NSLayoutConstraint]] = [:]
     build(&constraints)
     self.init(constraints: constraints)
   }

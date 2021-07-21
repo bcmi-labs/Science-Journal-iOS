@@ -300,6 +300,11 @@ class EditExperimentViewController: MaterialHeaderViewController, EditExperiment
     }
     alertController.addAction(saveAction)
     alertController.addAction(deleteAction)
+    if let cancelButton = alertController.button(for: deleteAction),
+       let okButton = alertController.button(for: saveAction) {
+      alertController.styleAlertCancel(button: cancelButton)
+      alertController.styleAlertOk(button: okButton)
+    }
     present(alertController, animated: true)
   }
 

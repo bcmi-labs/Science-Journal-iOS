@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="SettingsItemCell" customModule="third_party_sciencejournal_ios_ScienceJournalOpen" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="SettingsButtonCell" customModule="third_party_sciencejournal_ios_ScienceJournalOpen" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="352" height="102"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -21,20 +21,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="352" height="102"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Nog-Sb-7LQ">
-                                <rect key="frame" x="28" y="51.5" width="296" height="43"/>
+                                <rect key="frame" x="28" y="58" width="296" height="30"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M0p-7P-je4">
-                                        <rect key="frame" x="0.0" y="0.0" width="296" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XS6-kh-yi5">
-                                        <rect key="frame" x="0.0" y="22.5" width="296" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PfV-F9-f4R">
+                                        <rect key="frame" x="0.0" y="0.0" width="296" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -51,9 +43,7 @@
             </constraints>
             <size key="customSize" width="352" height="102"/>
             <connections>
-                <outlet property="stackView" destination="0Yo-Me-BEx" id="kBm-F1-eKW"/>
-                <outlet property="subtitleLabel" destination="XS6-kh-yi5" id="0Gh-pX-IJs"/>
-                <outlet property="titleLabel" destination="M0p-7P-je4" id="EOr-SI-EWQ"/>
+                <outlet property="button" destination="PfV-F9-f4R" id="Vta-sc-c1n"/>
             </connections>
             <point key="canvasLocation" x="205.79710144927537" y="135.26785714285714"/>
         </collectionViewCell>

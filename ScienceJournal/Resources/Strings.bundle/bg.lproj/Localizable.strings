@@ -8,6 +8,7 @@
 "acc_z" = "Акселерометър Z";
 /* Menu option for the about informational screen [CHAR_LIMIT=25] */
 "action_about" = "Информация";
+"action_account_settings" = "Account Settings";
 /* Menu option for adding a caption to an object. [CHAR_LIMIT=25] */
 "action_add_caption" = "Добавяне на надпис";
 /* Menu option for archiving a trial [CHAR_LIMIT=30] */
@@ -160,16 +161,17 @@
 "amplitude" = "Амплитуда";
 /* The name of this product. [CHAR_LIMIT=40] */
 "app_name" = "Arduino Science Journal";
-/* The app store description for Science Journal, character limit is not flexible [CHAR_LIMIT=4000] */
-"app_store_description" = "Научно списание е безплатен цифров научен дневник, предоставен от Google.\n\nНезависимо дали сте преподавател, или се занимавате с наука като хоби, можете да съхранявате бележките, снимките и наблюденията си на едно удобно място. Използвайте сензорите в своя iPhone или iPad, за да измервате и да създавате графики на явления като светлина, звук и движение, или свързвайте външни сензори чрез Bluetooth, за да експериментирате със света около себе си.\n\nС приложението Научно списание можете да:\n• измервате светлина, звук, ускорение, въздушно налягане и много други чрез вградените сензори в устройството си;\n• добавяте текст и снимки като бележки към документи в научните си експерименти (скоро ще са достъпни и други типове бележки);\n• свързвате външни сензори чрез избрани устройства Arduino с Bluetooth;\n• създавате автоматизирани задействания, за да записвате данни и бележки;\n• използвате сонификация, за да чуете движението на графиките си.\n\nСъобщение за разрешенията:\n• Bluetooth: необходимо е за сканиране за сензорни устройства с Bluetooth.\n• Камера: необходима е за правене на снимки с цел документиране на експерименти и за сензора за яркост.\n• Фотобиблиотека: необходима е за съхраняване на снимки от експерименти и за добавяне на съществуващи снимки от библиотеката ви към експерименти.\n• Микрофон: необходим е за сензора за интензитет на звука.\n• Насочени известия: необходими са, за да ви информираме относно състоянието на записването, когато приложението е на заден план.\n\nОбразователни активности от наши партньори:\nhttps://makingscience.withgoogle.com/science-journal/activities\nЗа поддръжка: https://productforums.google.com/forum/#!forum/sciencejournal";
-/* Change log for the iOS verison of Science Journal (note: this is multiline, with \n to separate lines) [CHAR_LIMIT=3000] */
+"app_store_description" = "The Arduino Science Journal is one of the BETT Award 2021 Finalist in the \"FREE DIGITAL CONTENT OR OPEN EDUCATIONAL RESOURCES\" category.\n\nThe Arduino Science Journal (formerly Science Journal, an initiative by Google) is free and open-source, and allows you to gather data about the world around you by harnessing the sensors in your smartphone as well as sensors connected to Arduino, or other third party hardware. The Science Journal transforms smartphones and tablets into science notebooks that encourage students to explore their world.\n\nThe Arduino Science Journal app is recommended for students from 10 to 18 years of age, and is available in 45 languages.\n\nAbout Arduino Science Journal\n\nWith the Arduino Science Journal, you can learn interactively, conduct experiments and iterate on findings.\n\nEnhance your existing lesson plans: use the Science Journal with activities and assignments you have already prepared\n\nClassroom & home-school friendly: you don’t have to be in a classroom setting to start exploring. The Arduino Science Journal can be used to run experiments straight away, as long as you have your smartphone or tablet with you!\n\nMove learning outside: the use of mobile devices along with the types of experiments we offer encourage students to get out of their seats and open their eyes to the world around them through the power of science\n\nScience and data have no secrets: you can easily record your observations, store your data sensors in real-time and analyse them, just as a proper scientist!\n\nConnect the digital and the physical world from your pocket: go through a series of simple tutorials and start having fun with science\n\n\nWith built-in device sensors as well as external hardware, you can measure light, sound, movement, and much more. You can also compare results, and even set triggers.\n\nTogether with the external hardware, (not included with the app), students are enabled to conduct more complex experiments, and advance in their scientific studies. As long as the external sensors are compatible with a Bluetooth-connecting device such as a microcontroller, there is no end to what experiments the students can make. Some popular sensors that the app can work with are: light, conductivity, temperature, force, gas, heart rate, respiration, radiation, pressure, magnetism, and many more.\n\n\nThe app is classroom-friendly, since students can sign in on any device and access their experiments to continue exploring the world, wherever they are!\n\nPermissions notice:\n\n• Bluetooth: needed to scan for Bluetooth sensor devices.\n\n• Camera: needed to take pictures to document experiments and for the brightness sensor.\n\n• Photo Library: needed to store pictures taken to document experiments and for adding existing photos from your library to experiments.\n\n• Microphone: needed for sound intensity sensor.\n\n• Push notifications: needed to inform you of recording status when backgrounding the app.\n\nBenefits of using the Arduino Science Journal\n\nIt’s free and simple to use\n\nEasy setup: download the app and start exploring with your phone’s built-in sensors\n\nPortable: enhance your home learning or bring your device outside to study the world around you\n\nSafe for children to use: COPPA Compliance underway\n\nFully compatible with Arduino hardware: keep experimenting with the Arduino Science Kit Physics Lab, as well as the Arduino Nano 33 BLE Sense board\n\nCompatible with third-party hardware\n\nFully open-source: you can develop your own hardware support as the app is open-source";
+/* What’s New - Change log for the iOS verison of Science Journal (note: this is multiline, with \n to separate lines) [CHAR_LIMIT=3000] */
 "app_store_ios_changelog" = "Нови функции и подобрения:\n• Влезте в профила си в Google, за да запазите експериментите и да имате достъп до тях на всички свои устройства чрез профила си в Google Диск. Тази функция ще е достъпна за всички потребители през следващите седмици. Научно списание все още може да се използва без вход в профила.";
 /* Generic change log for iOS versions where specific changes will not be noted [CHAR_LIMIT=3000] */
 "app_store_ios_generic_changelog" = "Много подобрения в ефективността и поправки на програмни грешки";
 /* The app store keywords list, comma-separated, character limit is NOT FLEXIBLE and INCLUDES commas, DO NOT use spaces or newlines [CHAR_LIMIT=98] */
 "app_store_keywords" = "Google,наука,образование,експерименти,сензори,графики,списание,дневник,бележки,документиране,ngss";
-/* The app store localizable app name (should include "by Google" to ensure uniqueness), character limit is not flexible [CHAR_LIMIT=30] */
+/* The app store localizable app name (should include "Arduino" to ensure uniqueness), character limit is not flexible [CHAR_LIMIT=30] */
 "app_store_name" = "Научно списание от Google";
+/* Screenshots description inside the App store and Google store */
+"app_store_screenshots" = "The official companion app for Arduino Science Kit\n\nRecord your experiments and break them down";
 /* The app store subtitle, appears below the app name in the app store on iOS 11, character limit is not flexible [CHAR_LIMIT=30] */
 "app_store_subtitle" = "Изследвайте околния свят";
 /* Label for an item which is archived. This displays over the top of the other elements so must be short [CHAR_LIMIT=20] */
@@ -243,12 +245,17 @@
 "arduino_sign_up_password_placeholder" = "Choose a password";
 "arduino_sign_up_submit_button" = "NEXT";
 "arduino_sign_up_terms_and_privacy" = "I have read the <a href=\"[%1]\" style=\"text-decoration: none\">Privacy Policy</a> and accept the <a href=\"[%2]\" style=\"text-decoration: none\">Terms of Service</a>.";
+"arduino_sign_up_terms_and_privacy_notice" = "By signing up you are agreeing to Arduino Terms of Service, and Privacy Policy";
 "arduino_sign_up_terms_submit_button" = "SIGN UP";
 "arduino_sign_up_title" = "Sign up to Arduino";
 "arduino_sign_up_tracking_approval" = "I want to see personalized commercial offers from Arduino based on my browsing and purchasing behavior.";
 "arduino_sign_up_username_exists_error" = "Username already in use.";
 "arduino_sign_up_username_info" = "Only letters, numbers, hyphen (-) and underscore (_) are allowed. Your username must start with a letter or number and be at least 3 characters long.";
 "arduino_sign_up_username_placeholder" = "Choose a username";
+"arduino_terms_agreement" = "We have updated the app Terms and Conditions. By accepting them you indicate that you have read and agree to the new Terms presented in the agreement.";
+"arduino_terms_agreement_cta" = "Agree";
+"arduino_terms_agreement_link_label" = "Terms and Conditions";
+"arduino_terms_agreement_title" = "Terms & Conditions";
 /* Section label for sensed devices that could be connected to [CHAR_LIMIT=30] */
 "available_devices" = "Налични устройства";
 /* Content description for a generic back button [CHAR_LIMIT=NONE] */
@@ -330,6 +337,8 @@
 "claim_all_experiments_confirmation_message" = "Are you sure to collect all experiments and add them to your account’s lab: %@’s Lab?";
 /* Confirmation dialog message for claiming all remaining experiments that don't belong to an account. The first placeholder is for the number of experiments and the second is for the email address of the user. [CHAR_LIMIT=60] */
 "claim_all_experiments_confirmation_message_plural" = "Are you sure to collect all %@ experiments and add them to your account’s lab: %@’s Lab?";
+/* Title of the confirm dialog claiming a all experiments. [CHAR_LIMIT=30] */
+"claim_all_experiments_confirmation_title" = "Collect all experiments";
 /* Accessibility title for the menu action title for claiming all experiments that don't belong to an account. [CHAR_LIMIT=NONE] */
 "claim_all_experiments_content_description" = "Заявяване на всички оставащи експерименти";
 /* Confirmation dialog message for claiming all experiments that don't belong to an account. [CHAR_LIMIT=50] */
@@ -341,7 +350,7 @@
 /* A confirmation dialog message shown when attempting to claim a single experiment for an account, with a placeholder for the email address. [CHAR_LIMIT=60] */
 "claim_experiment_confirmation_message" = "Are you sure to collect this experiment and add it to your account’s lab: %@’s Lab?";
 /* Title of the confirm dialog claiming a single experiment. [CHAR_LIMIT=30] */
-"claim_experiment_confirmation_title" = "Collect experiment?";
+"claim_experiment_confirmation_title" = "Collect experiment";
 /* A message shown when claiming an experiment fails because there is not enough disk space. [CHAR_LIMIT=55] */
 "claim_experiment_disk_space_error_message" = "Няма пространство за заявяване на експеримент";
 /* A message shown when claiming an experiment fails. [CHAR_LIMIT=30] */
@@ -500,6 +509,7 @@
 "drive_error_unknown" = "Научно списание не може да установи връзка с Google Диск. Възможно е някои експерименти да не се архивират.";
 /* Snackbar message when Google Drive cannot be reached due to potential network issue. [CHAR_LIMIT=100] */
 "drive_sync_cannot_reach_google_drive" = "Няма достъп до Google Диск. Проверете връзката си.";
+"drive_sync_confirm_button" = "Confirm";
 "drive_sync_conflict_keep_local" = "Keep local";
 "drive_sync_conflict_keep_remote" = "Keep remote";
 "drive_sync_conflict_message" = "The experiment \"%@\" has been modified from another device.";
@@ -507,6 +517,10 @@
 "drive_sync_create_folder_button" = "CREATE";
 "drive_sync_create_folder_default" = "Science Journal";
 "drive_sync_create_folder_title" = "Create New Folder";
+"drive_sync_disable_cancel" = "Cancel";
+"drive_sync_disable_confirm" = "Confirm";
+"drive_sync_disable_message" = "Are you sure you wish to disable your Google Drive Sync? If you confirm, your experiments will no longer be saved, and backed up to your Google Drive.";
+"drive_sync_disable_title" = "Disable Google Drive Sync";
 "drive_sync_error_setup_action" = "SETUP";
 "drive_sync_error_title" = "Sync Error";
 "drive_sync_export_error_message" = "The experiment \"%@\" could not be exported for syncing (it could be damaged). Please fix it or delete before syncing again.";
@@ -514,22 +528,30 @@
 "drive_sync_folder_picker_select" = "SYNC HERE";
 "drive_sync_folder_picker_text" = "Choose where you would like to save your experiments";
 "drive_sync_folder_picker_title" = "Select a folder";
+"drive_sync_info" = "Sign in with your Google account to start using drive sync";
 /* A message telling the user how their data is used and synced to Google Drive once they sign in and informing them about the ability to claim existing data after signing in. [CHAR_LIMIT=] */
 "drive_sync_information" = "Данните за експериментите в Научно списание се запазват и са налице на устройства с Google Диск. Достъпът до тях изисква вход в профила в Google.\n\nАко имате съществуващи данни на това устройство, можете да запазвате експериментите в Google Диск, след като влезете в профила си. Те се съхраняват в папка „Научно списание“ в профила ви в Google Диск.";
 "drive_sync_intro_google_action" = "Google Drive";
 "drive_sync_intro_more" = "LEARN MORE";
-"drive_sync_intro_more_text" = "If you have existing data on this device, once signed in, you can save your existing experiments to Google Drive. Your experiments are stored in a folder of your choice in Google Drive.";
+"drive_sync_intro_more_text" = "The Arduino Science Journal app and Arduino never access your experiments created in the App, as they are only saved locally, nor do they access your documents in Google Drive, under any circumstances, even when Cloud Sync is active. The Arduino Science Journal app will ask for your permission to see, create and delete files with the sole purpose of saving and backing up your experiments in a Google Drive’s folder of your choice.\nYou can change your preferences at any time straight from your Google account, or you can decide to revoke Cloud Sync’s access directly from the App.\nIf you use a Google Account through your organization or school, you may not be able to back up your files. Check with your administrator first. \nIf you have any doubt about Google Drive policies and/or if you have any problems related to the updates of Google Drive, please contact directly Google, as only the latter can help you deal with problems on your Google Drive account and folders. \nIf you have any doubts or questions about Google's policies, permissions and privacy policies, please read Google’s T&Cs and privacy policy.";
 "drive_sync_intro_skip" = "SKIP";
-"drive_sync_intro_text" = "Experiment data for Science Journal can be saved and made available across devices using Google Drive which requires signing in with a Google Account.";
+"drive_sync_intro_text" = "All your experiments can now be saved and accessed from anywhere with the Cloud Sync feature.  By tapping on the \"Google Drive\" button you are agreeing to Google’s permission and privacy policy to enable the backup, and sync of your experiments in a Google Drive folder of your choice, in accordance with Google T&Cs and privacy policy. You will be redirected to Google’s authentication page to complete your Cloud Sync.";
 "drive_sync_intro_title" = "Cloud Sync";
 "drive_sync_invalid_token_error_message" = "Science Journal’s permission to access your Google Drive expired or was revoked. To continue syncing your experiments, sign in again with your Google account.";
 "drive_sync_invalid_token_error_title" = "Unable to Access Google Drive";
+"drive_sync_loading_indicator_text" = "Syncing";
 "drive_sync_missing_folder_error_message" = "Google Drive folder used for syncing experiments is no longer available. To continue syncing your experiments, sign in again with your Google account.";
 "drive_sync_missing_folder_error_title" = "Unable to Access Drive Sync Folder";
+"drive_sync_privacy_policy" = "Privacy Policy";
 "drive_sync_root_folder_label" = "My Drive";
+"drive_sync_start_button" = "Sync now";
+"drive_sync_start_notice" = "The Cloud Sync will start shortly. It may take some minutes to complete.";
+"drive_sync_start_text" = "Congrats! Your Google Drive Account has been successfully set up. All your experiments will now be saved and backed up in the folder below.";
+"drive_sync_start_title" = "Google Drive";
 "drive_sync_summary_button" = "SYNC NOW";
 "drive_sync_summary_text" = "Your experiments will be automatically synced in the folder “%@” on your Drive.";
 "drive_sync_summary_title" = "Google Drive";
+"drive_sync_terms_of_service" = "Terms of Service";
 /* Content description for the manual edit crop end time menu option [CHAR_LIMIT=30] */
 "edit_crop_end_time" = "Краен час: редактиране";
 /* Content description for the manual edit crop start time menu option [CHAR_LIMIT=30] */
@@ -744,6 +766,7 @@
 "navigation_get_science_kit" = "Get Science Kit";
 "navigation_get_science_kit_link" = "https://www.arduino.cc/education/science-kit";
 "navigation_getting_started" = "Getting Started";
+"navigation_item_account_settings" = "Account Settings";
 /* Title of the navigation item to go to making science activities [CHAR_LIMIT=25] */
 "navigation_item_activities" = "Активности";
 /* Title of the navigation item to select experiment list page [CHAR_LIMIT=25] */
@@ -768,6 +791,11 @@
 "notes" = "Ноти";
 /* Accessibility hint describing the notes tab (add commas for clarity with voice over pauses) [CHAR_LIMIT=NONE] */
 "notes_tab_content_description" = "Бележки: добавете текстова бележка към този експеримент";
+"NSBluetoothAlwaysUsageDescription" = "Science Journal uses Bluetooth to connect to external sensors and capture their data in experiments.";
+"NSBluetoothPeripheralUsageDescription" = "Science Journal uses Bluetooth to connect to external sensors and capture their data in experiments.";
+"NSCameraUsageDescription" = "Science Journal uses the camera to include photos in experiment notes or to measure ambient light.";
+"NSMicrophoneUsageDescription" = "Science Journal uses the microphone to measure sound intensity.";
+"NSPhotoLibraryUsageDescription" = "Science Journal uses the photo library to include photos in experiment notes.";
 /* Accessibility hint describing the observe tab (add commas for clarity with voice over pauses) [CHAR_LIMIT=NONE] */
 "observe_tab_content_description" = "Наблюдение: използвайте сензори, за да добавяте моментни снимки или записи към този експеримент";
 "onboarding_01_quick_tip" = "You can always get back to this intro later in the sidebar menu.";
@@ -783,7 +811,7 @@
 "onboarding_04_text_02" = "Take a new photo";
 "onboarding_04_text_03" = "Make a sensor recording";
 "onboarding_04_text_04" = "Add a picture from your gallery";
-"onboarding_04_text_05" = "Document different types of observations through the <b>observation toolbar</b>. You can add a text note or photo to your experiment  or create a sensor recording.";
+"onboarding_04_text_05" = "Document different types of observations through the <b>observation toolbar</b>. You can add a text note or photo to your experiment or create a sensor recording.";
 "onboarding_04_title" = "Add Observations";
 "onboarding_05_quick_tip" = "You can add multiple sensors to your experiment to observe them simultaneously.";
 "onboarding_05_text_01" = "Pick a built-in phone sensor or connect an Arduino board to see live sensor data.";
@@ -1106,6 +1134,7 @@
 "server_permission_denied_title" = "Научно списание е деактивирано";
 /* Yes button for alert saying that Science Journal is not enabled for GSuite domain. [CHAR_LIMIT=40] */
 "server_switch_accounts_title" = "Превключване между профилите";
+"settings_advanced_settings_button" = "Advanced Settings";
 /* Description of the settings item that allows you to send data usage to Google. [CHAR_LIMIT=100] */
 "settings_data_usage_description" = "Данните са анонимни и спомагат за подобряването на това приложение.";
 /* Title for the settings item that allows you to send data usage to Google. [CHAR_LIMIT=80] */
@@ -1153,6 +1182,8 @@
 "snapshot_label_details_title" = "Данни за моментната снимка";
 /* Accessibility announcement when a snapshot is added to an experiment or recording [CHAR_LIMIT=NONE] */
 "snapshot_note_added_content_description" = "Моментната снимка е добавена";
+/* Screenshots description inside the App store and Google store */
+"spp_store_screenshots" = "Understand physical properties using sensors\n\nObserve how sensor values change over time\n\nSnap pictures to document your process\n\nTake notes of your experiment findings";
 /* Content description for the average stat icon [CHAR_LIMIT=NONE] */
 "stat_average" = "Средно";
 /* Content description for the maximum stat icon [CHAR_LIMIT=NONE] */

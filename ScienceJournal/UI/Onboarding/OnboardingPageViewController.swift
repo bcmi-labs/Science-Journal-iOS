@@ -27,7 +27,7 @@ class OnboardingPageViewController: UIViewController {
   var stackView: UIStackView { pageView.stackView }
   var scrollIndicator: OnboardingScrollIndicator { pageView.scrollIndicator }
   
-  private lazy var pageView: OnboardingPageView = OnboardingPageView.fromNib()
+  private lazy var pageView: OnboardingPageView = OnboardingPageView()
 
   convenience init(primaryAction: (() -> Void)?) {
     self.init()

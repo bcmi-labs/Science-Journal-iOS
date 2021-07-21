@@ -49,20 +49,6 @@ class SidebarAccountView: UIView {
     }
   }
 
-  /// The second line of text (when displaying an account it's the user's email address).
-  private var secondLine: String? {
-    didSet {
-      guard secondLine != oldValue else { return }
-      secondLineLabel.text = secondLine
-      if secondLine == nil {
-        labelStack.removeArrangedSubview(secondLineLabel)
-        secondLineLabel.removeFromSuperview()
-      } else {
-        labelStack.insertArrangedSubview(secondLineLabel, at: 1)
-      }
-    }
-  }
-
   /// The users's profile image.
   private var profileImage: UIImage? {
     didSet {
@@ -72,7 +58,6 @@ class SidebarAccountView: UIView {
   }
 
   private let firstLineLabel = UILabel()
-  private let secondLineLabel = UILabel()
   private let profileImageView = UIImageView()
   private let labelStack = UIStackView()
 
@@ -92,12 +77,18 @@ class SidebarAccountView: UIView {
   ///
   /// - Parameters:
   ///   - name: An account name.
-  ///   - email: An account email.
   ///   - profileImage: An account profile image.
   func showAccount(withName name: String, email: String, profileImage: URL?) {
     firstLine = name
-    secondLine = email
-    self.profileImage = /*profileImage ?? */UIImage(named: "ic_account_placeholder")
+
+    if profileImage == nil {
+      self.profileImage = UIImage(named: "ic_account_placeholder")
+    } else if profileImage?.absoluteString.range(of: "default.svg") != nil {
+      self.profileImage = UIImage(named: "ic_account_placeholder")
+    } else {
+      self.profileImageView.load(urlString: profileImage!)
+    }
+
     profileImageView.tintColor = nil
 
     accessibilityLabel =
@@ -108,7 +99,6 @@ class SidebarAccountView: UIView {
   /// Displays the signed out state with a generic icon.
   func showNoAccount() {
     firstLine = String.signIn
-    secondLine = nil
     profileImage = UIImage(named: "ic_account_placeholder")
 
     accessibilityLabel = String.sidebarAccountViewSignedOutContentDescription
@@ -131,17 +121,13 @@ class SidebarAccountView: UIView {
     separator.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
 
     firstLineLabel.font = ArduinoTypography.paragraphFont
-    secondLineLabel.font = MDCTypography.body1Font()
 
-    [firstLineLabel, secondLineLabel].forEach {
-      $0.translatesAutoresizingMaskIntoConstraints = false
-      $0.textColor = ArduinoColorPalette.grayPalette.tint800
-      $0.allowsDefaultTighteningForTruncation = true
-      $0.adjustsFontSizeToFitWidth = true
-    }
-
+    firstLineLabel.translatesAutoresizingMaskIntoConstraints = false
+    firstLineLabel.textColor = ArduinoColorPalette.grayPalette.tint800
+    firstLineLabel.allowsDefaultTighteningForTruncation = true
+    firstLineLabel.adjustsFontSizeToFitWidth = true
+    
     labelStack.addArrangedSubview(firstLineLabel)
-    labelStack.addArrangedSubview(secondLineLabel)
     labelStack.translatesAutoresizingMaskIntoConstraints = false
     labelStack.axis = .vertical
     labelStack.alignment = .leading

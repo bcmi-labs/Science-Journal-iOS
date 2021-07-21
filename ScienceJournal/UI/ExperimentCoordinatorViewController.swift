@@ -681,6 +681,11 @@ class ExperimentCoordinatorViewController: MaterialHeaderViewController, DrawerP
           }
           alertController.addAction(cancelAction)
           alertController.addAction(deleteAction)
+          if let cancelButton = alertController.button(for: cancelAction),
+             let okButton = alertController.button(for: deleteAction) {
+            alertController.styleAlertCancel(button: cancelButton)
+            alertController.styleAlertOk(button: okButton)
+          }
           self.present(alertController, animated: true)
         default:
           if let displayNote = displayItem as? DisplayNote {
@@ -1650,6 +1655,11 @@ class ExperimentCoordinatorViewController: MaterialHeaderViewController, DrawerP
         }
         alertController.addAction(cancelAction)
         alertController.addAction(deleteAction)
+        if let cancelButton = alertController.button(for: cancelAction),
+           let okButton = alertController.button(for: deleteAction) {
+          alertController.styleAlertCancel(button: cancelButton)
+          alertController.styleAlertOk(button: okButton)
+        }
         self.present(alertController, animated: true)
       })
     }
@@ -1720,6 +1730,11 @@ class ExperimentCoordinatorViewController: MaterialHeaderViewController, DrawerP
       alertController.addAction(cancelAction)
       alertController.addAction(deleteAction)
       alertController.accessibilityViewIsModal = true
+      if let cancelButton = alertController.button(for: cancelAction),
+         let okButton = alertController.button(for: deleteAction) {
+        alertController.styleAlertCancel(button: cancelButton)
+        alertController.styleAlertOk(button: okButton)
+      }
       self.present(alertController, animated: true)
     })
 

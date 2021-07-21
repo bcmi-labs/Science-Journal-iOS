@@ -21,12 +21,13 @@ import UIKit
 
 class OnboardingViewController: UIViewController {
 
-  @IBOutlet weak var topBar: UIView!
-  @IBOutlet weak var titleLabel: UILabel!
-  @IBOutlet weak var closeButton: UIButton!
-  @IBOutlet weak var pageControl: OnboardingPageControl!
-  @IBOutlet weak var pageContainer: UIView!
-
+  let topBar = UIView()
+  let titleLabel = UILabel()
+  let closeButton = UIButton(type: .system)
+  let pageControl = OnboardingPageControl()
+  let pageContainer = UIView()
+  let topBarContainerView = UIView()
+  
   var onClose: (() -> Void)?
 
   private let numberOfPages = 7
@@ -48,11 +49,16 @@ class OnboardingViewController: UIViewController {
 
   override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
 
+  override func loadView() {
+    view = UIView()
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     setupView()
     setupTopBar()
     setupPageViewController()
+    configureConstraints()
     setupGestureRecognizers()
   }
 }
@@ -103,18 +109,42 @@ private extension OnboardingViewController {
 
   func setupTopBar() {
     topBar.backgroundColor = ArduinoColorPalette.goldPalette.tint400
-
+    topBar.translatesAutoresizingMaskIntoConstraints = false
+    view.addSubview(topBar)
+    
+    topBarContainerView.translatesAutoresizingMaskIntoConstraints = false
+    topBar.addSubview(topBarContainerView)
+    
     titleLabel.textColor = UIColor.white
     titleLabel.font = ArduinoTypography.monoBoldFont(forSize: ArduinoTypography.FontSize.Small.rawValue)
     titleLabel.attributedText = NSAttributedString(string: String.onboardingNavigationTitle,
                                                    attributes: [.kern: 2])
-
+    titleLabel.textAlignment = .center
+    titleLabel.translatesAutoresizingMaskIntoConstraints = false
+    topBarContainerView.addSubview(titleLabel)
+    
+    closeButton.setImage(UIImage(named: "ic_close"), for: .normal)
+    closeButton.tintColor = .white
+    closeButton.contentEdgeInsets.left = 10
+    closeButton.contentEdgeInsets.right = 10
+    closeButton.contentEdgeInsets.top = 10
+    closeButton.contentEdgeInsets.bottom = 10
+    closeButton.setContentHuggingPriority(.required, for: .horizontal)
+    closeButton.setContentHuggingPriority(.required, for: .vertical)
+    closeButton.translatesAutoresizingMaskIntoConstraints = false
+    closeButton.addTarget(self, action: #selector(close), for: .touchUpInside)
+    topBarContainerView.addSubview(closeButton)
+    
     pageControl.numberOfPages = numberOfPages
+    pageControl.translatesAutoresizingMaskIntoConstraints = false
+    topBar.addSubview(pageControl)
   }
 
   func setupPageViewController() {
     pageContainer.backgroundColor = ArduinoColorPalette.grayPalette.tint50
-
+    pageContainer.translatesAutoresizingMaskIntoConstraints = false
+    view.addSubview(pageContainer)
+    
     if let page = page(at: 0) {
       pageViewController.setViewControllers([page],
                                             direction: .forward,
@@ -126,6 +156,34 @@ private extension OnboardingViewController {
     pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
     pageViewController.view.pinToEdgesOfView(pageContainer)
     pageViewController.didMove(toParent: self)
+  }
+  
+  func configureConstraints() {
+    topBar.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+    topBar.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+    topBar.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+    topBar.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 56).isActive = true
+    
+    topBarContainerView.leadingAnchor.constraint(equalTo: topBar.leadingAnchor).isActive = true
+    topBarContainerView.trailingAnchor.constraint(equalTo: topBar.trailingAnchor).isActive = true
+    topBarContainerView.bottomAnchor.constraint(equalTo: topBar.bottomAnchor).isActive = true
+    topBarContainerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+  
+    pageControl.bottomAnchor.constraint(equalTo: topBar.bottomAnchor, constant: -4).isActive = true
+    pageControl.leadingAnchor.constraint(equalTo: topBar.leadingAnchor, constant: 6).isActive = true
+    pageControl.trailingAnchor.constraint(equalTo: topBar.trailingAnchor, constant: -6).isActive = true
+    
+    titleLabel.centerYAnchor.constraint(equalTo: topBarContainerView.centerYAnchor).isActive = true
+    titleLabel.centerXAnchor.constraint(equalTo: topBarContainerView.centerXAnchor).isActive = true
+    
+    closeButton.topAnchor.constraint(equalTo: topBarContainerView.topAnchor).isActive = true
+    closeButton.bottomAnchor.constraint(equalTo: topBarContainerView.bottomAnchor).isActive = true
+    closeButton.trailingAnchor.constraint(equalTo: topBarContainerView.trailingAnchor).isActive = true
+    
+    pageContainer.topAnchor.constraint(equalTo: topBar.bottomAnchor).isActive = true
+    pageContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+    pageContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+    pageContainer.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
   }
 
   func setupGestureRecognizers() {
@@ -192,7 +250,7 @@ private extension OnboardingViewController {
     pageViewController.setViewControllers([page], direction: .forward, animated: false)
   }
 
-  @IBAction
+  @objc
   func close(_ sender: UIButton) {
     onClose?()
   }

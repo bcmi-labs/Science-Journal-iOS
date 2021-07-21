@@ -14,7 +14,6 @@
  *  limitations under the License.
  */
 
-import SnapKit
 import UIKit
 
 import MaterialComponents.MaterialButtonBar
@@ -122,10 +121,9 @@ extension ActionArea {
 
       button.layoutIfNeeded()
       view.addSubview(button)
-      button.snp.makeConstraints { make in
-        make.bottom.equalTo(bar.snp.top).offset(-1 * Metrics.Bar.toFABSpacing)
-        make.centerX.equalToSuperview()
-      }
+      button.translatesAutoresizingMaskIntoConstraints = false
+      button.bottomAnchor.constraint(equalTo: bar.topAnchor, constant: -1 * Metrics.Bar.toFABSpacing).isActive = true
+      button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 
       return button
     }
@@ -155,20 +153,23 @@ extension ActionArea {
       // Inset the layout margins from the edge, so we can keep the bar as close to the edge as
       // possible.
       view.insetsLayoutMarginsFromSafeArea = false
-      view.snp.setLabel("root")
 
-      content.view.snp.setLabel("content")
-
-      bar.snp.setLabel("bar")
       view.addSubview(bar)
-      bar.snp.makeConstraints { make in
-        make.leading.greaterThanOrEqualTo(view.snp.leadingMargin)
-        make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading).priority(.high)
-        make.trailing.lessThanOrEqualTo(view.snp.trailingMargin)
-        make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing).priority(.high)
-        make.bottom.lessThanOrEqualTo(view.snp.bottomMargin)
-        make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).priority(.high)
-      }
+      bar.translatesAutoresizingMaskIntoConstraints = false
+      bar.leadingAnchor.constraint(greaterThanOrEqualTo: view.layoutMarginsGuide.leadingAnchor).isActive = true
+      let leading = bar.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)
+      leading.priority = .defaultHigh
+      leading.isActive = true
+      
+      bar.trailingAnchor.constraint(lessThanOrEqualTo: view.layoutMarginsGuide.trailingAnchor).isActive = true
+      let trailing = bar.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+      trailing.priority = .defaultHigh
+      trailing.isActive = true
+      
+      bar.bottomAnchor.constraint(lessThanOrEqualTo: view.layoutMarginsGuide.bottomAnchor).isActive = true
+      let bottom = bar.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+      bottom.priority = .defaultHigh
+      bottom.isActive = true
     }
 
     // MARK: - Transitions
@@ -439,9 +440,11 @@ extension ActionArea {
       layer.cornerRadius = BarViewController.Metrics.Bar.cornerRadius
       layer.masksToBounds = true
       layoutMargins = BarViewController.Metrics.Bar.padding
-      stackView.snp.makeConstraints { make in
-        make.edges.equalTo(snp.margins)
-      }
+      stackView.translatesAutoresizingMaskIntoConstraints = false
+      stackView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor).isActive = true
+      stackView.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor).isActive = true
+      stackView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor).isActive = true
+      stackView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor).isActive = true
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -486,32 +489,28 @@ extension ActionArea {
       super.init(frame: .zero)
 
       translatesAutoresizingMaskIntoConstraints = false
-      snp.setLabel("action")
       accessibilityHint = item.accessibilityHint
 
       button.setImage(item.image, for: .normal)
       button.addTarget(item, action: #selector(BarButtonItem.execute), for: .touchUpInside)
       addSubview(button)
-      button.snp.setLabel("action.button")
-      button.snp.makeConstraints { make in
-        make.size.equalTo(BarViewController.Metrics.ActionButton.size)
-        make.top.equalToSuperview()
-        make.centerX.equalToSuperview()
-        make.leading.greaterThanOrEqualToSuperview()
-        make.trailing.lessThanOrEqualToSuperview()
-      }
+      button.translatesAutoresizingMaskIntoConstraints = false
+      button.heightAnchor.constraint(equalToConstant: BarViewController.Metrics.ActionButton.size).isActive = true
+      button.widthAnchor.constraint(equalToConstant: BarViewController.Metrics.ActionButton.size).isActive = true
+      button.topAnchor.constraint(equalTo: topAnchor).isActive = true
+      button.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+      button.leadingAnchor.constraint(greaterThanOrEqualTo: leadingAnchor).isActive = true
+      button.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor).isActive = true
 
       label.text = item.title
       addSubview(label)
-      label.snp.setLabel("action.label")
-      label.snp.makeConstraints { make in
-        make.top.equalTo(button.snp.bottom)
-          .offset(BarViewController.Metrics.ActionButton.toLabelSpacing)
-        make.centerX.equalTo(button)
-        make.leading.greaterThanOrEqualToSuperview()
-        make.trailing.lessThanOrEqualToSuperview()
-        make.bottom.equalToSuperview()
-      }
+      label.translatesAutoresizingMaskIntoConstraints = false
+      label.topAnchor.constraint(equalTo: button.bottomAnchor,
+                                 constant: BarViewController.Metrics.ActionButton.toLabelSpacing).isActive = true
+      label.centerXAnchor.constraint(equalTo: button.centerXAnchor).isActive = true
+      label.leadingAnchor.constraint(greaterThanOrEqualTo: leadingAnchor).isActive = true
+      label.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor).isActive = true
+      label.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
 
       self._intrinsicContentSize = systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
     }

@@ -498,7 +498,7 @@ class ExperimentsListViewController: MaterialHeaderViewController, ExperimentSta
   private func configurePullToRefresh() {
     if shouldAllowManualSync {
       pullToRefreshController = commonUIComponents.pullToRefreshController(
-          forScrollView: experimentsListItemsViewController.collectionView) { [weak self] in
+        forScrollView: experimentsListItemsViewController.collectionView, shouldShowLabel: true) { [weak self] in
         self?.performPullToRefresh()
       }
       if pullToRefreshController != nil {
@@ -508,7 +508,7 @@ class ExperimentsListViewController: MaterialHeaderViewController, ExperimentSta
         experimentsListItemsViewController.collectionView.alwaysBounceVertical = true
       }
       pullToRefreshControllerForEmptyView =
-          commonUIComponents.pullToRefreshController(forScrollView: emptyView) { [weak self] in
+          commonUIComponents.pullToRefreshController(forScrollView: emptyView, shouldShowLabel: true) { [weak self] in
         self?.performPullToRefresh()
       }
       if pullToRefreshControllerForEmptyView != nil {
@@ -751,6 +751,11 @@ class ExperimentsListViewController: MaterialHeaderViewController, ExperimentSta
       alertController.addAction(cancelAction)
       alertController.addAction(deleteAction)
       alertController.accessibilityViewIsModal = true
+      if let cancelButton = alertController.button(for: cancelAction),
+         let okButton = alertController.button(for: deleteAction) {
+        alertController.styleAlertCancel(button: cancelButton)
+        alertController.styleAlertOk(button: okButton)
+      }
       self.present(alertController, animated: true)
     })
 

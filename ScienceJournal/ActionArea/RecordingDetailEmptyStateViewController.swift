@@ -50,10 +50,9 @@ final class RecordingDetailEmptyStateViewController: UIViewController {
     let backgroundImageView =
       UIImageView(image: UIImage(named: "action_area_add_note_placeholder"))
     view.addSubview(backgroundImageView)
-    backgroundImageView.snp.makeConstraints { make in
-      make.centerX.equalToSuperview()
-      make.centerY.equalToSuperview().offset(-40)
-    }
+    backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
+    backgroundImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    backgroundImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant:  -40).isActive = true
 
     let imageView = UIImageView(image: UIImage(named: "ic_access_time"))
     imageView.tintColor = Metrics.labelTextColor
@@ -61,10 +60,9 @@ final class RecordingDetailEmptyStateViewController: UIViewController {
     let stackView = UIStackView(arrangedSubviews: [imageView, label])
     stackView.spacing = Metrics.stackSpacing
     view.addSubview(stackView)
-    stackView.snp.makeConstraints { (make) in
-      make.centerX.equalToSuperview()
-      make.top.equalTo(backgroundImageView.snp.bottom)
-    }
+    stackView.translatesAutoresizingMaskIntoConstraints = false
+    stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    stackView.topAnchor.constraint(equalTo: backgroundImageView.bottomAnchor).isActive = true
   }
 
   override var description: String {

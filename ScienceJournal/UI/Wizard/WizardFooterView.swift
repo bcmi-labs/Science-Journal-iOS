@@ -20,21 +20,48 @@
 import UIKit
 
 class WizardFooterView: UIView {
-
-    @IBOutlet var stackView: UIStackView!
-    @IBOutlet var termsButton: UIButton!
-    @IBOutlet var privacyButton: UIButton!
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-
-        [termsButton, privacyButton].forEach {
-            $0?.titleLabel?.font = ArduinoTypography.labelFont
-            $0?.tintColor = ArduinoColorPalette.tealPalette.tint800
-        }
-
-        termsButton.setTitle(String.settingsTermsTitle, for: .normal)
-        privacyButton.setTitle(String.settingsPrivacyPolicyTitle, for: .normal)
+  
+  let stackView = UIStackView()
+  let termsButton = UIButton(type: .system)
+  let privacyButton = UIButton(type: .system)
+  
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    configureView()
+    configureConstraints()
+  }
+  
+  required init?(coder: NSCoder) {
+    super.init(coder: coder)
+    configureView()
+    configureConstraints()
+  }
+  
+  private func configureView() {
+    backgroundColor = .white
+    
+    stackView.translatesAutoresizingMaskIntoConstraints = false
+    stackView.axis = .horizontal
+    stackView.distribution = .fill
+    stackView.alignment = .fill
+    stackView.spacing = 36
+    addSubview(stackView)
+    
+    [termsButton, privacyButton].forEach {
+      $0.titleLabel?.font = ArduinoTypography.labelFont
+      $0.tintColor = ArduinoColorPalette.tealPalette.tint800
     }
-
+    termsButton.setTitle(String.settingsTermsTitle, for: .normal)
+    termsButton.translatesAutoresizingMaskIntoConstraints = false
+    privacyButton.setTitle(String.settingsPrivacyPolicyTitle, for: .normal)
+    privacyButton.translatesAutoresizingMaskIntoConstraints = false
+    stackView.addArrangedSubview(termsButton)
+    stackView.addArrangedSubview(privacyButton)
+  }
+  
+  private func configureConstraints() {
+    stackView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+    stackView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+    stackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
+  }
 }

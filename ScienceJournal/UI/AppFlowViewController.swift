@@ -176,7 +176,7 @@ class AppFlowViewController: UIViewController {
     } else {
       reloadUserFlowViewController()
     }
-  }
+  } 
 
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return children.last?.preferredStatusBarStyle ?? .lightContent
@@ -268,7 +268,7 @@ class AppFlowViewController: UIViewController {
       return
     }
     
-    accountsManager.setupDriveSync(fromViewController: self)
+    accountsManager.setupDriveSync(fromViewController: self, isSignup: true)
   }
 
   private func handlePermissionDenial() {
@@ -423,7 +423,7 @@ extension AppFlowViewController: AccountsManagerDelegate {
   func accountsManagerDidFailDriveSyncSetup(with error: Error) {
     currentAccountUserManager?.driveSyncAuthorization = nil
     userFlowViewController?.driveSyncManager = nil
-    accountsManager.setupDriveSync(fromViewController: self)
+    accountsManager.setupDriveSync(fromViewController: self, isSignup: false)
   }
   
   func accountsManagerDidDisableDriveSync() {

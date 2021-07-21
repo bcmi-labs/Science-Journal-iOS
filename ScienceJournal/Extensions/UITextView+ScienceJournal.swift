@@ -65,4 +65,17 @@ extension UITextView {
     }
     attributedText = injectedString
   }
+
+  func makeBold(originalText: NSMutableAttributedString, boldText: String) {
+    let matchRange = originalText.mutableString.range(of: boldText)
+
+    originalText.addAttribute(NSAttributedString.Key.font,
+                                        value: ArduinoTypography.boldFont(forSize: 16), range: matchRange)
+  }
+
+  // Adds `link` functionality to string in text - handled by the delegate in the controller
+  func addLink(originalText: NSMutableAttributedString, value: String, selectedText: String) {
+    let matchRange = originalText.mutableString.range(of: selectedText)
+    originalText.addAttribute(NSAttributedString.Key.link, value: value, range: matchRange)
+  }
 }

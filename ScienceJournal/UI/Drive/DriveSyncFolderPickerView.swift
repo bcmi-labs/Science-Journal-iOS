@@ -33,6 +33,9 @@ class DriveSyncFolderPickerView: UIStackView {
     pathView.setContentHuggingPriority(.required, for: .vertical)
     addArrangedSubview(pathView)
 
+    pathView.translatesAutoresizingMaskIntoConstraints = false
+    pathView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
+
     pageView.translatesAutoresizingMaskIntoConstraints = false
     addArrangedSubview(pageView)
   }

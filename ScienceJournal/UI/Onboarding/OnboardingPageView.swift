@@ -21,26 +21,65 @@ import UIKit
 
 class OnboardingPageView: UIView {
 
-  @IBOutlet weak var scrollView: UIScrollView!
-  @IBOutlet weak var stackView: UIStackView!
+  let scrollView = UIScrollView()
+  let stackView = UIStackView()
 
-  @IBOutlet weak var titleLabel: UILabel!
+  let titleLabel = UILabel()
 
-  @IBOutlet weak var scrollIndicator: OnboardingScrollIndicator!
+  let scrollIndicator = OnboardingScrollIndicator()
 
-  override func awakeFromNib() {
-    super.awakeFromNib()
-
-    backgroundColor = ArduinoColorPalette.grayPalette.tint50
-    bringSubviewToFront(scrollIndicator)
-
-    stackView.isLayoutMarginsRelativeArrangement = true
-    stackView.setCustomSpacing(20, after: titleLabel)
-
-    titleLabel.font = ArduinoTypography.boldFont(forSize: ArduinoTypography.FontSize.Medium.rawValue)
-    titleLabel.textColor = ArduinoColorPalette.grayPalette.tint700
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    configureView()
+    configureConstraints()
   }
 
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    configureView()
+    configureConstraints()
+  }
+  
+  private func configureView() {
+    backgroundColor = ArduinoColorPalette.grayPalette.tint50
+
+    scrollView.translatesAutoresizingMaskIntoConstraints = false
+    addSubview(scrollView)
+  
+    stackView.axis = .vertical
+    stackView.alignment = .fill
+    stackView.distribution = .fill
+    stackView.spacing = 0
+    stackView.isLayoutMarginsRelativeArrangement = true
+    stackView.addArrangedSubview(titleLabel)
+    stackView.setCustomSpacing(20, after: titleLabel)
+    stackView.translatesAutoresizingMaskIntoConstraints = false
+    scrollView.addSubview(stackView)
+
+    titleLabel.font = ArduinoTypography.boldFont(forSize: ArduinoTypography.FontSize.Medium.rawValue)
+    titleLabel.textAlignment = .center
+    titleLabel.textColor = ArduinoColorPalette.grayPalette.tint700
+    titleLabel.translatesAutoresizingMaskIntoConstraints = false
+    
+    scrollIndicator.translatesAutoresizingMaskIntoConstraints = false
+    addSubview(scrollIndicator)
+    bringSubviewToFront(scrollIndicator)
+  }
+  
+  private func configureConstraints() {
+    scrollView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+    scrollView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+    scrollView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+    scrollView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+    
+    stackView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor).isActive = true
+    stackView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor).isActive = true
+    stackView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor).isActive = true
+    stackView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor).isActive = true
+    stackView.heightAnchor.constraint(equalTo: scrollView.frameLayoutGuide.heightAnchor).isActive = true
+    stackView.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor).isActive = true
+  }
+  
   override func layoutSubviews() {
     super.layoutSubviews()
 
@@ -467,19 +506,53 @@ class OnboardingQuickTip: UIStackView {
 }
 
 class OnboardingScrollIndicator: UIView {
-  @IBOutlet private weak var safeAreaBackgroundView: UIView!
-  @IBOutlet private weak var backgroundImageView: UIImageView!
-  @IBOutlet private weak var indicatorView: UIImageView!
+  let safeAreaBackgroundView = UIView()
+  let backgroundImageView = UIImageView()
+  let indicatorView = UIImageView()
 
   private var animator: UIViewPropertyAnimator?
-
-  override func awakeFromNib() {
-    super.awakeFromNib()
-
-    safeAreaBackgroundView.backgroundColor = ArduinoColorPalette.grayPalette.tint50
-    backgroundImageView.image = UIImage(named: "onboarding_scroll_indicator_bg")?.resizableImage(withCapInsets: .zero)
+  
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    configureView()
+    configureConstraints()
   }
 
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    configureView()
+    configureConstraints()
+  }
+  
+  func configureView() {
+    safeAreaBackgroundView.translatesAutoresizingMaskIntoConstraints = false
+    safeAreaBackgroundView.backgroundColor = ArduinoColorPalette.grayPalette.tint50
+    addSubview(safeAreaBackgroundView)
+    
+    backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
+    backgroundImageView.image = UIImage(named: "onboarding_scroll_indicator_bg")?.resizableImage(withCapInsets: .zero)
+    addSubview(backgroundImageView)
+    
+    indicatorView.image = UIImage(named: "onboarding_scroll_indicator")
+    indicatorView.translatesAutoresizingMaskIntoConstraints = false
+    addSubview(indicatorView)
+  }
+  
+  func configureConstraints() {
+    safeAreaBackgroundView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+    safeAreaBackgroundView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+    safeAreaBackgroundView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+    safeAreaBackgroundView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
+    
+    backgroundImageView.heightAnchor.constraint(equalToConstant: 64).isActive = true
+    backgroundImageView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+    backgroundImageView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+    backgroundImageView.bottomAnchor.constraint(equalTo: safeAreaBackgroundView.topAnchor).isActive = true
+    
+    indicatorView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+    indicatorView.bottomAnchor.constraint(equalTo: safeAreaBackgroundView.topAnchor, constant: -12).isActive = true
+  }
+  
   func startAnimation(_ reversed: Bool = false) {
     if let animator = animator, animator.isRunning {
       return

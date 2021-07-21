@@ -129,8 +129,12 @@ extension ArduinoAccountsManager {
     return true
   }
   
-  func setupDriveSync(fromViewController viewController: UIViewController) {
-    setupDriveSync(from: viewController)
+  func setupDriveSync(fromViewController viewController: UIViewController, isSignup: Bool) {    
+    setupDriveSync(from: viewController, isSignup: isSignup)
+  }
+
+  func learnMoreDriveSync(fromViewController viewController: UIViewController) {
+    learnMoreDriveSync(from: viewController)
   }
   
   func signInWithGoogle(fromViewController viewController: UIViewController,
@@ -775,17 +779,38 @@ private extension ArduinoAccountsManager {
     }
   }
   
-  func setupDriveSync(from viewController: UIViewController, completion: (() -> Void)? = nil) {
+  func setupDriveSync(from viewController: UIViewController, isSignup: Bool? = nil, completion: (() -> Void)? = nil) {
     guard let account = currentAccount, account.supportsDriveSync else { return }
-    
-    presentWizard(with: DriveSyncIntroViewController(accountsManager: self),
-                  from: viewController) { [weak self] wizard, isCancelled in
-      if isCancelled {
-        self?.delegate?.accountsManagerDidSkipDriveSyncSetup()
-        NotificationCenter.default.post(name: .driveSyncDidDisable, object: self)
+    let preferenceManager = PreferenceManager(accountID: account.ID)
+    let googleUser = GIDSignIn.sharedInstance().currentUser
+
+    if preferenceManager.driveSyncUserID != nil {
+      presentWizard(with: DriveSyncFolderPickerViewController(user: googleUser!, accountsManager: self),
+                    from: viewController) { [weak self] wizard, isCancelled in
+        if isCancelled {
+          self?.delegate?.accountsManagerDidSkipDriveSyncSetup()
+          NotificationCenter.default.post(name: .driveSyncDidDisable, object: self)
+        }
+        
+        wizard.dismiss(animated: true, completion: nil)
       }
-      
-      wizard.dismiss(animated: true, completion: nil)
+    } else {
+      presentWizard(with: DriveSyncIntroViewController(accountsManager: self, isSignup: isSignup),
+                    from: viewController) { [weak self] wizard, isCancelled in
+        if isCancelled {
+          self?.delegate?.accountsManagerDidSkipDriveSyncSetup()
+          NotificationCenter.default.post(name: .driveSyncDidDisable, object: self)
+        }
+        
+        wizard.dismiss(animated: true, completion: nil)
+      }
+    }
+  }
+
+  func learnMoreDriveSync(from viewController: UIViewController, completion: (() -> Void)? = nil) {
+    presentModal(with: DriveSyncLearnMoreViewController(), from: viewController) {modal, _ in 
+    
+    modal.dismiss(animated: true, completion: nil)
     }
   }
   
@@ -793,9 +818,7 @@ private extension ArduinoAccountsManager {
                      from presentingViewController: UIViewController,
                      onDismiss: @escaping (_ wizard: WizardRootViewController, _ isCancelled: Bool) -> Void) {
     
-    guard let wizardViewController = UIStoryboard(name: "Wizard", bundle: nil).instantiateInitialViewController()
-            as? WizardRootViewController else { return }
-    
+    let wizardViewController = WizardRootViewController()
     wizardViewController.initialViewController = initialViewController
     wizardViewController.onDismiss = onDismiss
     
@@ -811,6 +834,31 @@ private extension ArduinoAccountsManager {
       }
     } else {
       presentingViewController.present(wizardViewController, animated: true, completion: nil)
+    }
+  }
+
+  func presentModal(with initialViewController: UIViewController,
+                    from presentingViewController: UIViewController,
+                    onDismiss: @escaping (_ modal: ModalRootViewController, _ isCancelled: Bool) -> Void) {
+    
+    guard let modalViewController = UIStoryboard(name: "Modal", bundle: nil).instantiateInitialViewController()
+            as? ModalRootViewController else { return }
+    
+    modalViewController.initialViewController = initialViewController
+    modalViewController.onDismiss = onDismiss
+    
+    if presentingViewController.traitCollection.userInterfaceIdiom == .pad {
+      modalViewController.modalPresentationStyle = .formSheet
+    } else {
+      modalViewController.modalPresentationStyle = .fullScreen
+    }
+    
+    if let presentedViewController = presentingViewController.presentedViewController {
+      presentedViewController.dismiss(animated: true) {
+        presentingViewController.present(modalViewController, animated: true, completion: nil)
+      }
+    } else {
+      presentingViewController.present(modalViewController, animated: true, completion: nil)
     }
   }
 }

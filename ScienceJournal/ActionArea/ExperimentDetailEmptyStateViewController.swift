@@ -34,20 +34,18 @@ final class ExperimentDetailEmptyStateViewController: UIViewController {
     let backgroundImageView =
       UIImageView(image: UIImage(named: "action_area_add_note_placeholder"))
     view.addSubview(backgroundImageView)
-    backgroundImageView.snp.makeConstraints { make in
-      make.centerX.equalToSuperview()
-      make.centerY.equalToSuperview().offset(-40)
-    }
+    backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
+    backgroundImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    backgroundImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -40).isActive = true
 
     let label = UILabel()
     label.font = ArduinoTypography.subtitleFont
     label.text = String.actionAreaAddMoreNotes
     label.textColor = Metrics.labelTextColor
     view.addSubview(label)
-    label.snp.makeConstraints { (make) in
-      make.centerX.equalToSuperview()
-      make.top.equalTo(backgroundImageView.snp.bottom)
-    }
+    label.translatesAutoresizingMaskIntoConstraints = false
+    label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    label.topAnchor.constraint(equalTo: backgroundImageView.bottomAnchor).isActive = true
   }
 
   override var description: String {

@@ -55,8 +55,6 @@ target 'ScienceJournal' do
   pod 'Protobuf', '~> 3.5.0', :inhibit_warnings => true
   ## ZipArchive
   pod 'SSZipArchive', '2.1.1'
-  ## SnapKit
-  pod 'SnapKit', '5.0.0'
   ## SVG
   pod 'PocketSVG', '~> 2.6'
 
@@ -85,5 +83,4 @@ post_install do |installer|
     end
   end
   puts "Generating Science Journal protos..."
-  system("cd Protos && ./generate.sh")
 end

@@ -47,12 +47,12 @@ class DriveSyncSummaryViewController: WizardViewController {
     wizardView.text = String(format: String.driveSyncSummaryText, folder.name)
     wizardView.contentView = summaryView
     
-    summaryView.startButton.addTarget(self, action: #selector(start(_:)), for: .touchUpInside)
+    summaryView.confirmButton.addTarget(self, action: #selector(confirm(_:)), for: .touchUpInside)
   }
-  
-  @objc private func start(_ sender: UIButton) {
-    accountsManager.enableDriveSync(with: user, folderID: folder.id, folderName: folder.name)
-    rootViewController?.close(isCancelled: false)
+
+  @objc private func confirm(_ sender: UIButton) {
+    let vc = DriveSyncStartViewController(user: user, folder: folder, accountsManager: accountsManager)
+    navigationController?.show(vc, sender: sender)
   }
 
 }

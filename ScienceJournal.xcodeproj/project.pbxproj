@@ -277,6 +277,7 @@
 		5CFC8E6420488C4B00A674C2 /* ExportExperimentSensorDataOperationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC8E6320488C4B00A674C2 /* ExportExperimentSensorDataOperationTest.swift */; };
 		5CFC8E66204A076800A674C2 /* PopUpMenuAction+CommonActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC8E65204A076800A674C2 /* PopUpMenuAction+CommonActions.swift */; };
 		61B8BD06CFD2682C120CB31E /* Pods_ScienceJournal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FBA0D9917CD7B3AFD64321B /* Pods_ScienceJournal.framework */; };
+		61E516042642952A00B7CB0A /* MDCAlertController+Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E516032642952A00B7CB0A /* MDCAlertController+Styles.swift */; };
 		680659161EC24EBD0090670C /* String+ScienceJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680659151EC24EBD0090670C /* String+ScienceJournal.swift */; };
 		680659191EC24EC50090670C /* SnapshotCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680659171EC24EC50090670C /* SnapshotCardView.swift */; };
 		6806591A1EC24EC50090670C /* ExperimentCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680659181EC24EC50090670C /* ExperimentCardView.swift */; };
@@ -407,6 +408,23 @@
 		68EBA6E51E20421E0089FF7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68EBA6E41E20421E0089FF7F /* Assets.xcassets */; };
 		68F14AC21F21801F0054E799 /* TimeInterval+ScienceJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F14AC11F21801F0054E799 /* TimeInterval+ScienceJournal.swift */; };
 		68FB61111F3A70DA008281DB /* MaterialFloatingSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FB61101F3A70DA008281DB /* MaterialFloatingSpinner.swift */; };
+		7640AF2C265D225300D18FB3 /* DriveSyncStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7640AF28265D225200D18FB3 /* DriveSyncStartViewController.swift */; };
+		7640AF2D265D225300D18FB3 /* DriveSyncStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7640AF29265D225200D18FB3 /* DriveSyncStartView.swift */; };
+		7640AF2E265D225300D18FB3 /* DriveSyncLearnMoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7640AF2A265D225200D18FB3 /* DriveSyncLearnMoreView.swift */; };
+		7640AF2F265D225300D18FB3 /* DriveSyncLearnMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7640AF2B265D225300D18FB3 /* DriveSyncLearnMoreViewController.swift */; };
+		7640AF39265D226F00D18FB3 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7640AF34265D226E00D18FB3 /* ModalView.swift */; };
+		7640AF3A265D226F00D18FB3 /* ModalRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7640AF35265D226E00D18FB3 /* ModalRootViewController.swift */; };
+		7640AF3B265D226F00D18FB3 /* ModalNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7640AF36265D226F00D18FB3 /* ModalNavigationController.swift */; };
+		7640AF3C265D226F00D18FB3 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7640AF37265D226F00D18FB3 /* ModalViewController.swift */; };
+		7640AF3D265D226F00D18FB3 /* Modal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7640AF38265D226F00D18FB3 /* Modal.storyboard */; };
+		7640AF45265D228000D18FB3 /* SettingsButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7640AF41265D228000D18FB3 /* SettingsButtonCell.swift */; };
+		7640AF46265D228000D18FB3 /* SettingsAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7640AF42265D228000D18FB3 /* SettingsAccountCell.xib */; };
+		7640AF47265D228000D18FB3 /* SettingsAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7640AF43265D228000D18FB3 /* SettingsAccountCell.swift */; };
+		7640AF48265D228000D18FB3 /* SettingsButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7640AF44265D228000D18FB3 /* SettingsButtonCell.xib */; };
+		7640AF4D265D228A00D18FB3 /* SidebarSeparatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7640AF4C265D228A00D18FB3 /* SidebarSeparatorCell.swift */; };
+		76800552265FC09500C69B84 /* UIImageView+ScienceJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76800551265FC09500C69B84 /* UIImageView+ScienceJournal.swift */; };
+		76A1670526A18ECE005EC585 /* TermsAgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A1670326A18ECE005EC585 /* TermsAgreementView.swift */; };
+		76A1670626A18ECE005EC585 /* TermsAgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A1670426A18ECE005EC585 /* TermsAgreementViewController.swift */; };
 		86EBD8E3234E81B1004DFCB9 /* ScrollViewContentObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8692DC31234E544800052CE3 /* ScrollViewContentObserver.swift */; };
 		8B00318021346C1500B9BBFB /* PullToRefreshController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B00317E21346C1500B9BBFB /* PullToRefreshController.swift */; };
 		8B031EEC2098BA6D008F6F28 /* ExistingDataOptionsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B031EEB2098BA6D008F6F28 /* ExistingDataOptionsHeaderView.swift */; };
@@ -661,7 +679,6 @@
 		BC809203255C4EB90074E25A /* ArduinoTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC809202255C4EB90074E25A /* ArduinoTypography.swift */; };
 		BC809249255C51350074E25A /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC809248255C51350074E25A /* OnboardingPageViewController.swift */; };
 		BC80924E255C51480074E25A /* OnboardingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC80924D255C51480074E25A /* OnboardingPageView.swift */; };
-		BC809259255C51550074E25A /* OnboardingPageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC809258255C51550074E25A /* OnboardingPageView.xib */; };
 		BC809265255C57C80074E25A /* OnboardingPage1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC809264255C57C80074E25A /* OnboardingPage1ViewController.swift */; };
 		BC809273255C623C0074E25A /* NSAttributedString+ScienceJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC809272255C623C0074E25A /* NSAttributedString+ScienceJournal.swift */; };
 		BC80927B255D89100074E25A /* OnboardingPage2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC80927A255D89100074E25A /* OnboardingPage2ViewController.swift */; };
@@ -673,7 +690,6 @@
 		BC8621F425A9ECA9002D6B4F /* DriveSyncPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8621F325A9ECA9002D6B4F /* DriveSyncPathView.swift */; };
 		BC9164CE25A853CC00E75A56 /* DriveFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9164CD25A853CC00E75A56 /* DriveFetcher.swift */; };
 		BC96125826283DAA00DDE0CE /* WizardSecureTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC96125726283DAA00DDE0CE /* WizardSecureTextField.swift */; };
-		BC968C3825A30B3800A885AB /* Wizard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC968C3725A30B3800A885AB /* Wizard.storyboard */; };
 		BC968C3D25A30B4D00A885AB /* WizardNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC968C3C25A30B4D00A885AB /* WizardNavigationController.swift */; };
 		BC968C4225A30B8D00A885AB /* WizardRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC968C4125A30B8D00A885AB /* WizardRootViewController.swift */; };
 		BC968C4A25A30CD300A885AB /* WizardFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC968C4925A30CD300A885AB /* WizardFooterView.swift */; };
@@ -699,13 +715,9 @@
 		BCCE581F261F4736002E12FB /* SignUpJuniorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCE581E261F4736002E12FB /* SignUpJuniorView.swift */; };
 		BCCE584D261F5827002E12FB /* SignUpJuniorAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCE584C261F5827002E12FB /* SignUpJuniorAvatarView.swift */; };
 		BCD4180A255AF639007546A1 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD41808255AF639007546A1 /* OnboardingViewController.swift */; };
-		BCD4180B255AF639007546A1 /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCD41809255AF639007546A1 /* OnboardingViewController.xib */; };
 		BCD8384D262590BB002AE4BC /* SettingsHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8384B262590BB002AE4BC /* SettingsHeaderCell.swift */; };
-		BCD8384E262590BB002AE4BC /* SettingsHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCD8384C262590BB002AE4BC /* SettingsHeaderCell.xib */; };
 		BCD8385726259270002AE4BC /* SettingsSeparatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8385526259270002AE4BC /* SettingsSeparatorCell.swift */; };
-		BCD8385826259270002AE4BC /* SettingsSeparatorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCD8385626259270002AE4BC /* SettingsSeparatorCell.xib */; };
 		BCD83861262593CC002AE4BC /* SettingsItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8385F262593CB002AE4BC /* SettingsItemCell.swift */; };
-		BCD83862262593CC002AE4BC /* SettingsItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCD83860262593CC002AE4BC /* SettingsItemCell.xib */; };
 		BCEA323A2631AE87009B25A2 /* DriveConstructorDisabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEA32392631AE87009B25A2 /* DriveConstructorDisabled.swift */; };
 		BCEC93A524C033D20041296C /* BLEArduinoSensorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC93A424C033D20041296C /* BLEArduinoSensorInterface.swift */; };
 		BCEC93A724C038400041296C /* BLEScienceKitVoltageSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC93A624C038400041296C /* BLEScienceKitVoltageSensor.swift */; };
@@ -1062,6 +1074,7 @@
 		5CFC8E6120488A3500A674C2 /* ZipOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZipOperation.swift; sourceTree = "<group>"; };
 		5CFC8E6320488C4B00A674C2 /* ExportExperimentSensorDataOperationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportExperimentSensorDataOperationTest.swift; sourceTree = "<group>"; };
 		5CFC8E65204A076800A674C2 /* PopUpMenuAction+CommonActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PopUpMenuAction+CommonActions.swift"; sourceTree = "<group>"; };
+		61E516032642952A00B7CB0A /* MDCAlertController+Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MDCAlertController+Styles.swift"; sourceTree = "<group>"; };
 		680659151EC24EBD0090670C /* String+ScienceJournal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+ScienceJournal.swift"; sourceTree = "<group>"; };
 		680659171EC24EC50090670C /* SnapshotCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotCardView.swift; sourceTree = "<group>"; };
 		680659181EC24EC50090670C /* ExperimentCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExperimentCardView.swift; sourceTree = "<group>"; };
@@ -1223,6 +1236,23 @@
 		68F14AC11F21801F0054E799 /* TimeInterval+ScienceJournal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeInterval+ScienceJournal.swift"; sourceTree = "<group>"; };
 		68FB61101F3A70DA008281DB /* MaterialFloatingSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialFloatingSpinner.swift; sourceTree = "<group>"; };
 		716FC707D21F24E45C613BEC /* Pods-ScienceJournalUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScienceJournalUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScienceJournalUITests/Pods-ScienceJournalUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7640AF28265D225200D18FB3 /* DriveSyncStartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriveSyncStartViewController.swift; sourceTree = "<group>"; };
+		7640AF29265D225200D18FB3 /* DriveSyncStartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriveSyncStartView.swift; sourceTree = "<group>"; };
+		7640AF2A265D225200D18FB3 /* DriveSyncLearnMoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriveSyncLearnMoreView.swift; sourceTree = "<group>"; };
+		7640AF2B265D225300D18FB3 /* DriveSyncLearnMoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriveSyncLearnMoreViewController.swift; sourceTree = "<group>"; };
+		7640AF34265D226E00D18FB3 /* ModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
+		7640AF35265D226E00D18FB3 /* ModalRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalRootViewController.swift; sourceTree = "<group>"; };
+		7640AF36265D226F00D18FB3 /* ModalNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalNavigationController.swift; sourceTree = "<group>"; };
+		7640AF37265D226F00D18FB3 /* ModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
+		7640AF38265D226F00D18FB3 /* Modal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Modal.storyboard; sourceTree = "<group>"; };
+		7640AF41265D228000D18FB3 /* SettingsButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsButtonCell.swift; sourceTree = "<group>"; };
+		7640AF42265D228000D18FB3 /* SettingsAccountCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsAccountCell.xib; sourceTree = "<group>"; };
+		7640AF43265D228000D18FB3 /* SettingsAccountCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsAccountCell.swift; sourceTree = "<group>"; };
+		7640AF44265D228000D18FB3 /* SettingsButtonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsButtonCell.xib; sourceTree = "<group>"; };
+		7640AF4C265D228A00D18FB3 /* SidebarSeparatorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidebarSeparatorCell.swift; sourceTree = "<group>"; };
+		76800551265FC09500C69B84 /* UIImageView+ScienceJournal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+ScienceJournal.swift"; sourceTree = "<group>"; };
+		76A1670326A18ECE005EC585 /* TermsAgreementView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsAgreementView.swift; sourceTree = "<group>"; };
+		76A1670426A18ECE005EC585 /* TermsAgreementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsAgreementViewController.swift; sourceTree = "<group>"; };
 		81B6ADB3C8B55839B4C266D2 /* Pods-ScienceJournal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScienceJournal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScienceJournal/Pods-ScienceJournal.debug.xcconfig"; sourceTree = "<group>"; };
 		8692DC31234E544800052CE3 /* ScrollViewContentObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScrollViewContentObserver.swift; path = ../UI/ScrollViewContentObserver.swift; sourceTree = "<group>"; };
 		8B00317E21346C1500B9BBFB /* PullToRefreshController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullToRefreshController.swift; sourceTree = "<group>"; };
@@ -1479,7 +1509,6 @@
 		BC809202255C4EB90074E25A /* ArduinoTypography.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArduinoTypography.swift; sourceTree = "<group>"; };
 		BC809248255C51350074E25A /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		BC80924D255C51480074E25A /* OnboardingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageView.swift; sourceTree = "<group>"; };
-		BC809258255C51550074E25A /* OnboardingPageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingPageView.xib; sourceTree = "<group>"; };
 		BC809264255C57C80074E25A /* OnboardingPage1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage1ViewController.swift; sourceTree = "<group>"; };
 		BC809272255C623C0074E25A /* NSAttributedString+ScienceJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+ScienceJournal.swift"; sourceTree = "<group>"; };
 		BC80927A255D89100074E25A /* OnboardingPage2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage2ViewController.swift; sourceTree = "<group>"; };
@@ -1491,7 +1520,6 @@
 		BC8621F325A9ECA9002D6B4F /* DriveSyncPathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveSyncPathView.swift; sourceTree = "<group>"; };
 		BC9164CD25A853CC00E75A56 /* DriveFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveFetcher.swift; sourceTree = "<group>"; };
 		BC96125726283DAA00DDE0CE /* WizardSecureTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardSecureTextField.swift; sourceTree = "<group>"; };
-		BC968C3725A30B3800A885AB /* Wizard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Wizard.storyboard; sourceTree = "<group>"; };
 		BC968C3C25A30B4D00A885AB /* WizardNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardNavigationController.swift; sourceTree = "<group>"; };
 		BC968C4125A30B8D00A885AB /* WizardRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardRootViewController.swift; sourceTree = "<group>"; };
 		BC968C4925A30CD300A885AB /* WizardFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardFooterView.swift; sourceTree = "<group>"; };
@@ -1517,13 +1545,9 @@
 		BCCE581E261F4736002E12FB /* SignUpJuniorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpJuniorView.swift; sourceTree = "<group>"; };
 		BCCE584C261F5827002E12FB /* SignUpJuniorAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpJuniorAvatarView.swift; sourceTree = "<group>"; };
 		BCD41808255AF639007546A1 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
-		BCD41809255AF639007546A1 /* OnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
 		BCD8384B262590BB002AE4BC /* SettingsHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHeaderCell.swift; sourceTree = "<group>"; };
-		BCD8384C262590BB002AE4BC /* SettingsHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsHeaderCell.xib; sourceTree = "<group>"; };
 		BCD8385526259270002AE4BC /* SettingsSeparatorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSeparatorCell.swift; sourceTree = "<group>"; };
-		BCD8385626259270002AE4BC /* SettingsSeparatorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsSeparatorCell.xib; sourceTree = "<group>"; };
 		BCD8385F262593CB002AE4BC /* SettingsItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemCell.swift; sourceTree = "<group>"; };
-		BCD83860262593CC002AE4BC /* SettingsItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsItemCell.xib; sourceTree = "<group>"; };
 		BCEA32392631AE87009B25A2 /* DriveConstructorDisabled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveConstructorDisabled.swift; sourceTree = "<group>"; };
 		BCEC93A424C033D20041296C /* BLEArduinoSensorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEArduinoSensorInterface.swift; sourceTree = "<group>"; };
 		BCEC93A624C038400041296C /* BLEScienceKitVoltageSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEScienceKitVoltageSensor.swift; sourceTree = "<group>"; };
@@ -2556,6 +2580,9 @@
 		689906211E5CDD3100419E1F /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				76A1670326A18ECE005EC585 /* TermsAgreementView.swift */,
+				76A1670426A18ECE005EC585 /* TermsAgreementViewController.swift */,
+				7640AF33265D225600D18FB3 /* Modal */,
 				8B6054832049C4840036C1E4 /* AlphaFadeTransitionController.swift */,
 				5C684EF320A4CC50008414C0 /* AppFlowViewController.swift */,
 				8B65A94E2225923700D1FDF9 /* LoadingViewController.swift */,
@@ -2579,6 +2606,7 @@
 				8BD3A0F91F263BF100A5DDBD /* Snackbars */,
 				8B17918F1F06AAA6008C0B31 /* Triggers */,
 				BC968C3025A30AFB00A885AB /* Wizard */,
+				61E516032642952A00B7CB0A /* MDCAlertController+Styles.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -2669,6 +2697,7 @@
 		68A997581EA8090B00B8F875 /* Sidebar */ = {
 			isa = PBXGroup;
 			children = (
+				7640AF4C265D228A00D18FB3 /* SidebarSeparatorCell.swift */,
 				4845F77920BE1C0300FCBA71 /* SidebarAccountView.swift */,
 				68EACA6D1EAFC96300BB5892 /* SidebarCell.swift */,
 				68EACA6E1EAFC96300BB5892 /* SidebarHeaderCell.swift */,
@@ -2718,12 +2747,13 @@
 		68EACA7A1EB0205700BB5892 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				7640AF43265D228000D18FB3 /* SettingsAccountCell.swift */,
+				7640AF42265D228000D18FB3 /* SettingsAccountCell.xib */,
+				7640AF41265D228000D18FB3 /* SettingsButtonCell.swift */,
+				7640AF44265D228000D18FB3 /* SettingsButtonCell.xib */,
 				BCD8384B262590BB002AE4BC /* SettingsHeaderCell.swift */,
-				BCD8384C262590BB002AE4BC /* SettingsHeaderCell.xib */,
 				BCD8385F262593CB002AE4BC /* SettingsItemCell.swift */,
-				BCD83860262593CC002AE4BC /* SettingsItemCell.xib */,
 				BCD8385526259270002AE4BC /* SettingsSeparatorCell.swift */,
-				BCD8385626259270002AE4BC /* SettingsSeparatorCell.xib */,
 				68EACA7D1EB0234000BB5892 /* SettingsViewController.swift */,
 			);
 			name = Settings;
@@ -2765,7 +2795,6 @@
 		68EBA6DC1E20421E0089FF7F /* ScienceJournal */ = {
 			isa = PBXGroup;
 			children = (
-				68EBA6E91E20421E0089FF7F /* Info.plist */,
 				68EBA6DD1E20421E0089FF7F /* AppDelegate.swift */,
 				68E3618B203F7F0900B1B979 /* AppDelegateOpen.swift */,
 				8BCB0F8D21A32593003FB9E7 /* ElapsedTimeEventManager.swift */,
@@ -2872,6 +2901,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7640AF33265D225600D18FB3 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				7640AF38265D226F00D18FB3 /* Modal.storyboard */,
+				7640AF36265D226F00D18FB3 /* ModalNavigationController.swift */,
+				7640AF35265D226E00D18FB3 /* ModalRootViewController.swift */,
+				7640AF34265D226E00D18FB3 /* ModalView.swift */,
+				7640AF37265D226F00D18FB3 /* ModalViewController.swift */,
+			);
+			name = Modal;
+			sourceTree = "<group>";
+		};
 		8B064066203E0EFD00F66356 /* AnimatingSensorView */ = {
 			isa = PBXGroup;
 			children = (
@@ -2912,6 +2953,7 @@
 		8B111F691E41225A000400F1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				76800551265FC09500C69B84 /* UIImageView+ScienceJournal.swift */,
 				5C62CBA02229A7F700E63538 /* Array+ScienceJournal.swift */,
 				8B29D3A81F9E48A700D1DDA9 /* AVAudioSessionRouteChangeReason+ScienceJournal.swift */,
 				8BA5BF3A1F45CEDA00EB77E8 /* AVCaptureSessionInterruptionReason+ScienceJournal.swift */,
@@ -3285,6 +3327,7 @@
 		8BDD4C2B1EA6879000FCCA30 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				68EBA6E91E20421E0089FF7F /* Info.plist */,
 				68EBA6E41E20421E0089FF7F /* Assets.xcassets */,
 				F31242AF24EECE37000146F5 /* Fonts */,
 				BCF411EE253854E0002D6C73 /* InfoPlist.strings */,
@@ -3366,7 +3409,6 @@
 		BC968C3025A30AFB00A885AB /* Wizard */ = {
 			isa = PBXGroup;
 			children = (
-				BC968C3725A30B3800A885AB /* Wizard.storyboard */,
 				BC993E0425A47BCC0001F76D /* WizardButton.swift */,
 				BC968C4925A30CD300A885AB /* WizardFooterView.swift */,
 				BC968C3C25A30B4D00A885AB /* WizardNavigationController.swift */,
@@ -3382,6 +3424,10 @@
 		BC993DD325A469370001F76D /* Drive */ = {
 			isa = PBXGroup;
 			children = (
+				7640AF2A265D225200D18FB3 /* DriveSyncLearnMoreView.swift */,
+				7640AF2B265D225300D18FB3 /* DriveSyncLearnMoreViewController.swift */,
+				7640AF29265D225200D18FB3 /* DriveSyncStartView.swift */,
+				7640AF28265D225200D18FB3 /* DriveSyncStartViewController.swift */,
 				BC9BB4CA25AC9E9A00F22E71 /* DriveSyncFolderCreateView.swift */,
 				BC4DEE6F25A7831C002BA286 /* DriveSyncFolderListTableViewController.swift */,
 				BC4DEE6425A72019002BA286 /* DriveSyncFolderPickerView.swift */,
@@ -3461,10 +3507,8 @@
 			children = (
 				BC809263255C578A0074E25A /* Pages */,
 				BC80924D255C51480074E25A /* OnboardingPageView.swift */,
-				BC809258255C51550074E25A /* OnboardingPageView.xib */,
 				BC809248255C51350074E25A /* OnboardingPageViewController.swift */,
 				BCD41808255AF639007546A1 /* OnboardingViewController.swift */,
-				BCD41809255AF639007546A1 /* OnboardingViewController.xib */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -3527,6 +3571,7 @@
 				C790AD8CF306522DBC5993A0 /* [CP] Check Pods Manifest.lock */,
 				68836E631EDF3D5D004CE69B /* Generate Strings */,
 				686E3D311F5888DA00250628 /* FIXMEs to Warnings */,
+				611E781B2639874E0012EC38 /* Generate Protos */,
 				68EBA6D61E20421E0089FF7F /* Sources */,
 				68EBA6D71E20421E0089FF7F /* Frameworks */,
 				68EBA6D81E20421E0089FF7F /* Resources */,
@@ -3596,7 +3641,7 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 7KT7ZWMCJT;
 						LastSwiftMigration = 1110;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 0;
@@ -3718,18 +3763,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCD8385826259270002AE4BC /* SettingsSeparatorCell.xib in Resources */,
 				4878E93E22974D21004B61AF /* Strings.bundle in Resources */,
 				5C7EFC51202A5BAC0007F99E /* protobuf.html in Resources */,
 				48BFD8CD20D065FF00FB5C1A /* motion_animator.html in Resources */,
 				F31242B224EECE38000146F5 /* OpenSans-Bold.ttf in Resources */,
+				7640AF48265D228000D18FB3 /* SettingsButtonCell.xib in Resources */,
 				48FDC26B20AB51B600C472DA /* oss_licenses_index.txt in Resources */,
 				5C7EFC50202A5BAC0007F99E /* material_components.html in Resources */,
-				BC809259255C51550074E25A /* OnboardingPageView.xib in Resources */,
+				7640AF3D265D226F00D18FB3 /* Modal.storyboard in Resources */,
 				5C7EFC52202A5BAC0007F99E /* ziparchive.html in Resources */,
-				BCD8384E262590BB002AE4BC /* SettingsHeaderCell.xib in Resources */,
-				BCD4180B255AF639007546A1 /* OnboardingViewController.xib in Resources */,
-				BC968C3825A30B3800A885AB /* Wizard.storyboard in Resources */,
 				48BFD8D220D065FF00FB5C1A /* google_toolbox_for_mac.html in Resources */,
 				BC809184255BDFDB0074E25A /* RobotoMono-Regular.ttf in Resources */,
 				48BFD8D120D065FF00FB5C1A /* google_api_client_for_rest.html in Resources */,
@@ -3739,8 +3781,8 @@
 				4878E94022974DCC004B61AF /* LaunchScreen.storyboard in Resources */,
 				8BDD4C2D1EA687FD00FCCA30 /* trigger_sound1.mp3 in Resources */,
 				48BFD8CC20D065FF00FB5C1A /* gtm_session_fetcher.html in Resources */,
+				7640AF46265D228000D18FB3 /* SettingsAccountCell.xib in Resources */,
 				48BFD8D020D065FF00FB5C1A /* gtm_oauth_2.html in Resources */,
-				BCD83862262593CC002AE4BC /* SettingsItemCell.xib in Resources */,
 				5C7EFC53202A5BAC0007F99E /* mdf_text.html in Resources */,
 				48BFD8CE20D065FF00FB5C1A /* motion_interchange.html in Resources */,
 				F31242B324EECE38000146F5 /* OpenSans-Regular.ttf in Resources */,
@@ -3789,6 +3831,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ScienceJournalTests/Pods-ScienceJournalTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		611E781B2639874E0012EC38 /* Generate Protos */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Protos";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "Protos/generate.sh\n";
 		};
 		686E3D311F5888DA00250628 /* FIXMEs to Warnings */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3858,7 +3918,6 @@
 				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -3877,7 +3936,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSZipArchive.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3978,6 +4036,7 @@
 				5C11AE721EB7D92D0077F752 /* MakingScienceSensorInterface.swift in Sources */,
 				BC4DEE5A25A7136F002BA286 /* DriveSyncFolderPickerViewController.swift in Sources */,
 				8B06406E203E0FDC00F66356 /* RelativeScaleAnimationView.swift in Sources */,
+				61E516042642952A00B7CB0A /* MDCAlertController+Styles.swift in Sources */,
 				5C7DB67920E3E8FF00F915CD /* StringConstants.swift in Sources */,
 				6806592E1EC3BE290090670C /* ExperimentCardHeaderView.swift in Sources */,
 				BC24D32E260A47CA00209383 /* SignInSocialView.swift in Sources */,
@@ -3989,6 +4048,7 @@
 				BC24D34B260A541200209383 /* PasswordRecoveryConfirmationView.swift in Sources */,
 				687FAA05202C1162004C1D04 /* Caption.pbobjc.m in Sources */,
 				BC7AB0FC24D07A6500703B2E /* BLEScienceKitAccelerometerYSensor.swift in Sources */,
+				7640AF47265D228000D18FB3 /* SettingsAccountCell.swift in Sources */,
 				5C11AE6E1EB7D8800077F752 /* BLESensorInterface.swift in Sources */,
 				5CE521AD20A4A7B300767C8E /* UserFlowViewController.swift in Sources */,
 				8B4B60161E44DADF009AFB1B /* MotionSensor.swift in Sources */,
@@ -4026,6 +4086,7 @@
 				687FAA0E202C1162004C1D04 /* SnapshotLabelValue.pbobjc.m in Sources */,
 				68ACCC491F9565F800FDCD38 /* NumberFormatter+ScienceJournal.swift in Sources */,
 				BC24D33B260A507000209383 /* PasswordRecoveryView.swift in Sources */,
+				7640AF3C265D226F00D18FB3 /* ModalViewController.swift in Sources */,
 				680865791EAEC970005F54E1 /* LicensesViewController.swift in Sources */,
 				58C4DB1522D53B4C0029E519 /* PDFExportOperation.swift in Sources */,
 				681688341F32996E00CC2B5F /* UIViewController+ScienceJournal.swift in Sources */,
@@ -4169,6 +4230,7 @@
 				8B5114F120B5AAA2005953BD /* ExistingDataMigrationManager.swift in Sources */,
 				8B064068203E0F1300F66356 /* SensorAnimationView.swift in Sources */,
 				5CBD9AB81F74175100D22D21 /* ValueFilter.swift in Sources */,
+				7640AF45265D228000D18FB3 /* SettingsButtonCell.swift in Sources */,
 				68E36197203F7F2300B1B979 /* FeedbackReporterOpen.swift in Sources */,
 				5C72195F1ED8D04700817F0B /* Note.swift in Sources */,
 				8BC4D5BC1EBBD4CE0086906D /* CGSize+ScienceJournal.swift in Sources */,
@@ -4209,6 +4271,7 @@
 				68EBA6DE1E20421E0089FF7F /* AppDelegate.swift in Sources */,
 				689BE6AE1EF21C6E00EE0F9E /* UIColor+ScienceJournal.swift in Sources */,
 				68587BA71F871646003266BA /* DateComponentsFormatter+ScienceJournal.swift in Sources */,
+				7640AF3B265D226F00D18FB3 /* ModalNavigationController.swift in Sources */,
 				8B2D60841F27D4F500F21EF9 /* UIViewController+DisplayType.swift in Sources */,
 				8BE81BEC1EB7A7D300EEC3BB /* PhotoCapturer.swift in Sources */,
 				485ED07D21FA7D6700017071 /* RemoteConfigFlagProtocol.swift in Sources */,
@@ -4240,6 +4303,7 @@
 				489182C11E4542CE00E91D73 /* ChartController.swift in Sources */,
 				688509571F0712AD00D3A1A3 /* TextNoteDetailViewController.swift in Sources */,
 				68CA86371EC4F06900E13AE0 /* TextNoteCardCell.swift in Sources */,
+				76800552265FC09500C69B84 /* UIImageView+ScienceJournal.swift in Sources */,
 				5C612F1220AC6A430097CCAB /* LocalSyncStatus.pbobjc.m in Sources */,
 				8B111F6D1E4122B9000400F1 /* AudioSensor.swift in Sources */,
 				8B5938A31ECB59B600531928 /* ExperimentCardCaptionView.swift in Sources */,
@@ -4285,6 +4349,7 @@
 				5C2C2A33203780ED007F2FA5 /* ImportExperimentOperation.swift in Sources */,
 				8B9F060F1EF42CCB0030B011 /* SensorTrigger.swift in Sources */,
 				BC80928F255D893A0074E25A /* OnboardingPage6ViewController.swift in Sources */,
+				7640AF3A265D226F00D18FB3 /* ModalRootViewController.swift in Sources */,
 				5CE521A4209D045700767C8E /* RootUserManager.swift in Sources */,
 				3F22062423046E9D00FB19D0 /* ActionAreaBarViewController.swift in Sources */,
 				5CFC8E5E204757A100A674C2 /* IconPath.swift in Sources */,
@@ -4335,6 +4400,7 @@
 				BC809203255C4EB90074E25A /* ArduinoTypography.swift in Sources */,
 				BC24D3262609FD7400209383 /* WizardTextField.swift in Sources */,
 				68C6C7871F171F4F00B07C93 /* RecordingBar.swift in Sources */,
+				7640AF2D265D225300D18FB3 /* DriveSyncStartView.swift in Sources */,
 				5CE6388820AC8A37004A712F /* LocalSyncStatus.swift in Sources */,
 				5C19CE301FD09D7F00938D49 /* TrialStatsAdjuster.swift in Sources */,
 				5C0EDCEF1FE30F280014E825 /* CropValidator.swift in Sources */,
@@ -4399,6 +4465,7 @@
 				8B111F661E412131000400F1 /* SensorController.swift in Sources */,
 				58AB86B62305FEAD00DB5367 /* RecordingDetailEmptyStateViewController.swift in Sources */,
 				BCCE581F261F4736002E12FB /* SignUpJuniorView.swift in Sources */,
+				7640AF2C265D225300D18FB3 /* DriveSyncStartViewController.swift in Sources */,
 				5C7DE8C61EC22B100015F407 /* ElapsedTimeFormatter.swift in Sources */,
 				8BA5BF3B1F45CEDA00EB77E8 /* AVCaptureSessionInterruptionReason+ScienceJournal.swift in Sources */,
 				68525A441F2BD8F700A41675 /* ExifData.swift in Sources */,
@@ -4442,6 +4509,7 @@
 				6836532D1F5F9F4300132922 /* EmptyView.swift in Sources */,
 				8B1791931F06B1F4008C0B31 /* TriggerListDataSource.swift in Sources */,
 				5C50F58D1F61F22F00711D28 /* FileVersion.swift in Sources */,
+				7640AF2F265D225300D18FB3 /* DriveSyncLearnMoreViewController.swift in Sources */,
 				BC9164CE25A853CC00E75A56 /* DriveFetcher.swift in Sources */,
 				5C7219601ED8D04700817F0B /* SensorLayout.swift in Sources */,
 				BC58716925F2892F00531078 /* GTLRDrive_File+ScienceJournal.swift in Sources */,
@@ -4466,6 +4534,7 @@
 				8B9F061B1EF446130030B011 /* GSJTriggerInformation_TriggerWhen+ScienceJournal.swift in Sources */,
 				5C62DC1A1FFD41A800A4F348 /* ExperimentUpdateManager.swift in Sources */,
 				BC3F2BD02615FE6E00FCE525 /* URLRequest+ScienceJournal.swift in Sources */,
+				76A1670526A18ECE005EC585 /* TermsAgreementView.swift in Sources */,
 				489182BC1E45041800E91D73 /* UIView+Animation.swift in Sources */,
 				8BCCAD5E1EE5EDB500278F05 /* ShadowedView.swift in Sources */,
 				8B497DC7204F27C600DFC4E1 /* BackgroundTaskObserver.swift in Sources */,
@@ -4487,6 +4556,7 @@
 				3F8F55E9234578C600CC6319 /* MaterialHeaderContainerViewController.swift in Sources */,
 				5C52C0AC1FB10072007B4150 /* CropOverlayView.swift in Sources */,
 				BC72115F261DC20300DCC391 /* SignInVerificationView.swift in Sources */,
+				7640AF39265D226F00D18FB3 /* ModalView.swift in Sources */,
 				5C650B0520892A5700CB4656 /* AccountsManager.swift in Sources */,
 				68E3C8D21FD783FE00255ADF /* Bundle+ScienceJournal.swift in Sources */,
 				68BD95651E8DA45100FEB0B2 /* SoundType.swift in Sources */,
@@ -4494,9 +4564,11 @@
 				BC0F532026121C20002B30D0 /* SignUpConfirmationView.swift in Sources */,
 				8BCCAD561EDF593C00278F05 /* PopUpMenuAction.swift in Sources */,
 				687FAA0D202C1162004C1D04 /* SensorTriggerLabelValue.pbobjc.m in Sources */,
+				76A1670626A18ECE005EC585 /* TermsAgreementViewController.swift in Sources */,
 				8BF9DA9D2268BED80052C285 /* ExistingDataMigrationManagerErrorArray+ScienceJournal.swift in Sources */,
 				BCD8384D262590BB002AE4BC /* SettingsHeaderCell.swift in Sources */,
 				8B0682D220A33E39003DA2A3 /* ExperimentInteractionOptions.swift in Sources */,
+				7640AF4D265D228A00D18FB3 /* SidebarSeparatorCell.swift in Sources */,
 				BC968C4225A30B8D00A885AB /* WizardRootViewController.swift in Sources */,
 				8B5114EB20B49F53005953BD /* ClaimExperimentListCell.swift in Sources */,
 				680659161EC24EBD0090670C /* String+ScienceJournal.swift in Sources */,
@@ -4518,6 +4590,7 @@
 				6880F01D1F28519A00EFF7BC /* ExperimentCardCellDelegate.swift in Sources */,
 				8BBFBC1D21388A29008FFBF4 /* NetworkAvailabilityDisabled.swift in Sources */,
 				5C11AE6C1EB7D8280077F752 /* BLEServiceInterface.swift in Sources */,
+				7640AF2E265D225300D18FB3 /* DriveSyncLearnMoreView.swift in Sources */,
 				8B2055781E8310B7000B4403 /* MetadataManager.swift in Sources */,
 				5C63842421078D77008281DF /* MutuallyExclusive.swift in Sources */,
 				684DDF4A1EF30A8500F50678 /* UIView+ScienceJournal.swift in Sources */,
@@ -4858,9 +4931,9 @@
 			baseConfigurationReference = D65BB81A86250B67E7CA196C /* Pods-ScienceJournal.adhoc.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = logo_science_journal;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 59;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 66;
 				DEVELOPMENT_TEAM = 7KT7ZWMCJT;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4870,11 +4943,11 @@
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MotionAnimator\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MotionInterchange\"",
 				);
-				INFOPLIST_FILE = ScienceJournal/Info.plist;
+				INFOPLIST_FILE = ScienceJournal/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 5.0.0;
+				MARKETING_VERSION = 5.0.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -4901,7 +4974,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cc.arduino.ScienceJournal;
 				PRODUCT_MODULE_NAME = third_party_sciencejournal_ios_ScienceJournalOpen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "ScienceJournal Distribution";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_DEBUG_IMPLICIT_OBJC_ENTRYPOINT = 0;
 				SWIFT_INCLUDE_PATHS = "\"$(SRCROOT)/ModuleMaps\"/**";
 				SWIFT_VERSION = 5.0;
@@ -5027,9 +5100,9 @@
 			baseConfigurationReference = 93AFC6D21C987695548ADC66 /* Pods-ScienceJournal.dogfood.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = logo_science_journal;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 59;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 66;
 				DEVELOPMENT_TEAM = 7KT7ZWMCJT;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5039,11 +5112,11 @@
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MotionAnimator\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MotionInterchange\"",
 				);
-				INFOPLIST_FILE = ScienceJournal/Info.plist;
+				INFOPLIST_FILE = ScienceJournal/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 5.0.0;
+				MARKETING_VERSION = 5.0.1;
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-iquote",
@@ -5089,7 +5162,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cc.arduino.ScienceJournal;
 				PRODUCT_MODULE_NAME = third_party_sciencejournal_ios_ScienceJournalOpen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "ScienceJournal Distribution";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_DEBUG_IMPLICIT_OBJC_ENTRYPOINT = 0;
 				SWIFT_INCLUDE_PATHS = "\"$(SRCROOT)/ModuleMaps\"/**";
 				SWIFT_VERSION = 5.0;
@@ -5275,8 +5348,9 @@
 			baseConfigurationReference = 81B6ADB3C8B55839B4C266D2 /* Pods-ScienceJournal.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = logo_science_journal;
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 59;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 66;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 7KT7ZWMCJT;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5287,11 +5361,11 @@
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MotionAnimator\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MotionInterchange\"",
 				);
-				INFOPLIST_FILE = ScienceJournal/Info.plist;
+				INFOPLIST_FILE = ScienceJournal/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 5.0.0;
+				MARKETING_VERSION = 5.0.1;
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-iquote",
@@ -5339,7 +5413,7 @@
 				PRODUCT_MODULE_NAME = third_party_sciencejournal_ios_ScienceJournalOpen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "ScienceJournal Development";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_DEBUG_IMPLICIT_OBJC_ENTRYPOINT = 3;
 				SWIFT_INCLUDE_PATHS = "\"$(SRCROOT)/ModuleMaps\"/**";
 				SWIFT_VERSION = 5.0;
@@ -5355,7 +5429,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = logo_science_journal;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 59;
+				CURRENT_PROJECT_VERSION = 66;
 				DEVELOPMENT_TEAM = 7KT7ZWMCJT;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5365,11 +5439,11 @@
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MotionAnimator\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/MotionInterchange\"",
 				);
-				INFOPLIST_FILE = ScienceJournal/Info.plist;
+				INFOPLIST_FILE = ScienceJournal/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 5.0.0;
+				MARKETING_VERSION = 5.0.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -5396,7 +5470,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cc.arduino.ScienceJournal;
 				PRODUCT_MODULE_NAME = third_party_sciencejournal_ios_ScienceJournalOpen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "ScienceJournal Distribution";
+				PROVISIONING_PROFILE_SPECIFIER = "Science Journal Distribution";
 				SWIFT_DEBUG_IMPLICIT_OBJC_ENTRYPOINT = 0;
 				SWIFT_INCLUDE_PATHS = "\"$(SRCROOT)/ModuleMaps\"/**";
 				SWIFT_VERSION = 5.0;

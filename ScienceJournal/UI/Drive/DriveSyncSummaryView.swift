@@ -44,7 +44,7 @@ class DriveSyncSummaryView: UIStackView {
     return stackView
   }()
   
-  let startButton = WizardButton(title: String.driveSyncSummaryButton, style: .solid)
+  let confirmButton = WizardButton(title: String.driveSyncConfirmButton.uppercased(), style: .solid)
 
   private let folderLabel: UILabel = {
     let label = UILabel()
@@ -65,7 +65,7 @@ class DriveSyncSummaryView: UIStackView {
     folderLabel.text = folderName
     
     addArrangedSubview(folderView)
-    addArrangedSubview(startButton)
+    addArrangedSubview(confirmButton)
   }
 
   required init(coder: NSCoder) {

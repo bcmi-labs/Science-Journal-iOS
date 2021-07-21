@@ -16,7 +16,6 @@
 
 // swiftlint:disable file_length
 
-import SnapKit
 import UIKit
 
 extension ActionArea {
@@ -316,12 +315,16 @@ extension ActionArea {
     // MARK: - Lifecycle
 
     private lazy var layoutConstraints = MutuallyExclusiveConstraints<Layout.Mode> { constraints in
-      constraints[.collapsed] = masterBarViewController.view.snp.prepareConstraints { prepare in
-        prepare.bottom.trailing.equalToSuperview()
-      }
-      constraints[.expanded] = detailBarViewController.view.snp.prepareConstraints { prepare in
-        prepare.bottom.trailing.equalToSuperview()
-      }
+      masterBarViewController.view.translatesAutoresizingMaskIntoConstraints = false
+      constraints[.collapsed] = [
+        masterBarViewController.view.bottomAnchor.constraint(equalTo: actionAreaContent.view.bottomAnchor),
+        masterBarViewController.view.trailingAnchor.constraint(equalTo: actionAreaContent.view.trailingAnchor)
+      ]
+      detailBarViewController.view.translatesAutoresizingMaskIntoConstraints = false
+      constraints[.expanded] = [
+        detailBarViewController.view.bottomAnchor.constraint(equalTo: actionAreaContent.view.bottomAnchor),
+      detailBarViewController.view.trailingAnchor.constraint(equalTo: actionAreaContent.view.trailingAnchor)
+      ]
     }
 
     private lazy var transitioningNavigationController: UINavigationController = {
@@ -347,18 +350,19 @@ extension ActionArea {
       actionAreaContent.addChild(masterBarViewController)
       actionAreaContent.view.addSubview(masterBarViewController.view)
       masterBarViewController.didMove(toParent: actionAreaContent)
-      masterBarViewController.view.snp.makeConstraints { make in
-        make.top.leading.equalToSuperview()
-      }
+      masterBarViewController.view.translatesAutoresizingMaskIntoConstraints = false
+      masterBarViewController.view.topAnchor.constraint(equalTo: actionAreaContent.view.topAnchor).isActive = true
+      masterBarViewController.view.leadingAnchor.constraint(equalTo: actionAreaContent.view.leadingAnchor).isActive = true
 
       actionAreaContent.addChild(detailBarViewController)
       actionAreaContent.view.addSubview(detailBarViewController.view)
       detailBarViewController.didMove(toParent: actionAreaContent)
-      detailBarViewController.view.snp.makeConstraints { make in
-        make.width.equalTo(layout.detailWidth)
-        make.top.bottom.equalTo(masterBarViewController.view)
-        make.leading.equalTo(masterBarViewController.view.snp.trailing).offset(layout.divider)
-      }
+      detailBarViewController.view.translatesAutoresizingMaskIntoConstraints = false
+      detailBarViewController.view.widthAnchor.constraint(equalToConstant: layout.detailWidth).isActive = true
+      detailBarViewController.view.topAnchor.constraint(equalTo: masterBarViewController.view.topAnchor).isActive = true
+      detailBarViewController.view.bottomAnchor.constraint(equalTo: masterBarViewController.view.bottomAnchor).isActive = true
+      detailBarViewController.view.leadingAnchor.constraint(equalTo: masterBarViewController.view.trailingAnchor,
+                                                            constant: layout.divider).isActive = true
 
       addChild(transitioningNavigationController)
       view.addSubview(transitioningNavigationController.view)
@@ -810,12 +814,11 @@ private extension ActionArea.Controller {
     coordinator: UIViewControllerTransitionCoordinator?,
     animator: UIViewPropertyAnimator?
   ) {
-    func createCurrentSizeConstraint() -> Constraint? {
-      var sizeConstraint: Constraint?
-      masterBarViewController.view.snp.makeConstraints { make in
-        sizeConstraint = make.size.equalTo(masterBarViewController.view.bounds.size).constraint
-      }
-      return sizeConstraint
+    func createCurrentSizeConstraint() -> [NSLayoutConstraint] {
+      return [
+        masterBarViewController.view.widthAnchor.constraint(equalToConstant: masterBarViewController.view.bounds.size.width),
+        masterBarViewController.view.heightAnchor.constraint(equalToConstant: masterBarViewController.view.bounds.size.height)
+      ]
     }
 
     switch (oldLayout, newLayout, source) {
@@ -890,7 +893,7 @@ private extension ActionArea.Controller {
       )
 
       transition(during: {
-        sizeConstraint?.deactivate()
+        NSLayoutConstraint.deactivate(sizeConstraint)
         self.layoutConstraints.activate(newLayout.mode)
         self.view.layoutIfNeeded()
         navControllerSnapshot?.alpha = 0
@@ -952,7 +955,7 @@ private extension ActionArea.Controller {
       )
 
       transition(during: {
-        sizeConstraint?.deactivate()
+        NSLayoutConstraint.deactivate(sizeConstraint)
         self.layoutConstraints.activate(newLayout.mode)
         self.view.layoutIfNeeded()
         navControllerSnapshot?.alpha = 0
